@@ -99,7 +99,7 @@ def setupClient():
    
 
 def publish(json_data, client):
-    print(json_data)
+   #print(json_data)
     client.publish("/SysArch/V4/Test", json_data)
 
 def stopClient():
