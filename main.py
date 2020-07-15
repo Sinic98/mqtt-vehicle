@@ -214,9 +214,9 @@ def main():
     while loggedIn:
         setupClient()
         print("Client Setup finished")
-        sensors = enableSensors()
+        accel, magnet, gyro, alti = enableSensors()
         print("Sensors enabled")
-        json_data = saveSensorValuesAsJson(sensors)
+        json_data = saveSensorValuesAsJson(accel, magnet, gyro, alti)
         print("Values saved")
         publish(json_data)
         print("Data published")
