@@ -1,13 +1,13 @@
 import Klassen
 import MQTT_function
 
-setupCLient()
+client = setupCLient()
 
 loggedIn = true
 
 while loggedIn:
     json_data = saveSensorValuesAsJson()
-    publish(json_data)
+    publish(json_data, client)
 
 stopClient()
 
