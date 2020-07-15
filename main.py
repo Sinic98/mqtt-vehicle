@@ -96,7 +96,7 @@ def setupClient():
     client.loop_start()
    
 
-def publish(json_data):
+def publish(json_data, client):
     print(json_data)
     client.publish("/SysArch/V4/Test", json_data)
 
@@ -212,13 +212,13 @@ def main():
     loggedIn = True
 
     while loggedIn:
-        setupClient()
+        client = setupClient()
         print("Client Setup finished")
         accel, magnet, gyro, alti = enableSensors()
         print("Sensors enabled")
         json_data = saveSensorValuesAsJson(accel, magnet, gyro, alti)
         print("Values saved")
-        publish(json_data)
+        publish(json_data, client)
         print("Data published")
 
     stopClient()
