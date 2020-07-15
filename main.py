@@ -212,16 +212,17 @@ def saveSensorValuesAsJson(accel, magnet, gyro, alti):
 def main():
     print("Hello world!")
     loggedIn = True
+    client = setupClient()
+    print("Client Setup finished")
+    accel, magnet, gyro, alti = enableSensors()
+    print("Sensors enabled")
 
     while loggedIn:
-        client = setupClient()
-        print("Client Setup finished")
-        accel, magnet, gyro, alti = enableSensors()
-        print("Sensors enabled")
         json_data = saveSensorValuesAsJson(accel, magnet, gyro, alti)
         print("Values saved")
         publish(json_data, client)
         print("Data published")
+        time.sleep(0.1)
 
     stopClient()
 
