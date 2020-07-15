@@ -1,7 +1,7 @@
 import Klassen
 import MQTT_function
 
-client = setupCLient()
+client = setupClient()
 
 loggedIn = true
 
