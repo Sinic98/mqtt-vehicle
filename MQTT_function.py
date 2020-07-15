@@ -11,7 +11,7 @@ def setupClient():
     client.username_pw_set("V4","DE7")
     client.connect("localhost", 8884)
 
-    # print("Client connected")
+    print("Client connected")
 
     def on_connect(client, userdata, flags, rc):
         print("CONNACK received with code %d." % (rc))
@@ -22,8 +22,10 @@ def setupClient():
 
     client.on_connect = on_connect
     client.on_publish = on_publish
+  #  lwm = "Error: Client disconnected!"     # last will message
+  #  client.will_set("/SysArch/V4/Test", lwm, QOS1)
 
-    client.loop_start()
+    # client.loop_start()
 
 def publish(json_data):
     print(json_data)

@@ -5,7 +5,7 @@ setupCLient()
 
 loggedIn = true
 
-while loggedIn
+while loggedIn:
     json_data = saveSensorValuesAsJson()
     publish(json_data)
 
