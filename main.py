@@ -6,7 +6,8 @@ setupCLient()
 loggedIn = true
 
 while loggedIn
-    publish(saveSensorValuesAsJson())
+    json_data = saveSensorValuesAsJson()
+    publish(json_data)
 
 stopClient()
 
