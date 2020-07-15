@@ -207,7 +207,7 @@ def saveSensorValuesAsJson():
 
 def main():
     print("Hello world!")
-    loggedIn = true
+    loggedIn = True
 
     while loggedIn:
         setupClient()
