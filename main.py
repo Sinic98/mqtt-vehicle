@@ -115,7 +115,7 @@ def enableSensors():
 
     #gyro
     gyro = AltIMU()
-    gyro.enable_gyrometer()
+    gyro.enable_gyroscope()
 
     #altitude
     alti = AltIMU()
