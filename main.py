@@ -93,6 +93,8 @@ def setupClient():
     #lwm = "Error: Client disconnected!"     # last will message
     #client.will_set("/SysArch/V4/Test", lwm, QOS1)
 
+    return client
+
     client.loop_start()
    
 
