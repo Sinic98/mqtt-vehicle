@@ -63,19 +63,31 @@ import random
 
 from time import sleep
 
-from lsm6ds33 import LSM6DS33
-from lis3mdl import LIS3MDL
-from lps25h import LPS25H
+from constants import *         # Includes addresses on I2C bus
+from lsm6ds33 import LSM6DS33   # Accel & Gyro (+ temp)
+from lis3mdl import LIS3MDL     # Magnetometer (+ temp)
+from lps25h import LPS25H       # Barometric Pressure & Temperature
+from altimu import AltIMU
+
 
     #enable sensors
 def enableSensors():
-     imu = LSM6DS33()
-     imu.enableLSM()
+    #accel
+    accel = AltIMU()
+    accel.enable_accelerometer()
 
-     magnet = LIS3MDL()
-     magnet.enableLIS()
-     baro = LPS25H()
-     baro.enableLPS()
+    #magnet
+    magnet = AltIMU()
+    magnet.enable_magnetometer()
+
+    #gyro
+    gyro = AltIMU()
+    gyro.enable_gyrometer()
+
+    #altitude
+    alti = AltIMU()
+    alti.enable_barometer()
+    
 
 def saveSensorValuesAsJson():
     #save sensor values in variables
@@ -110,9 +122,9 @@ def saveSensorValuesAsJson():
         speed1= speed0+2
         speedvalue =random.randint(speed0,speed1)
 
-    altimetervalue= baro.getAltitude()
+    altimetervalue= alti.getAltitude()
 
-    gyrovalue = imu.getGyroscopeRaw()
+    gyrovalue = imu.getGryoscopeMDPS()
     gyrovaluex= gyrovalue[0]
     gyrovaluey= gyrovalue[1]
     gyrovaluez= gyrovalue[2]
