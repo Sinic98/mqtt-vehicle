@@ -124,7 +124,7 @@ def saveSensorValuesAsJson():
 
     altimetervalue= alti.getAltitude()
 
-    gyrovalue = imu.getGryoscopeMDPS()
+    gyrovalue = gyro.getGryoscopeMDPS()
     gyrovaluex= gyrovalue[0]
     gyrovaluey= gyrovalue[1]
     gyrovaluez= gyrovalue[2]
@@ -134,7 +134,7 @@ def saveSensorValuesAsJson():
     magnetvaluey= magnetvalue[1]
     magnetvaluez= magnetvalue[2]
 
-    accelerationvalue =imu.getAccelerometerRaw()
+    accelerationvalue =accel.getAccelerometerRaw()
     accelerationvaluex= accelerationvalue[0]
     accelerationvaluey= accelerationvalue[1]
     accelerationvaluez= accelerationvalue[2]
