@@ -216,7 +216,7 @@ def main():
         print("Client Setup finished")
         enableSensors()
         print("Sensors enabled")
-        json_data = saveSensorValuesAsJson(sensors)
+        json_data = saveSensorValuesAsJson()
         print("Values saved")
         publish(json_data)
         print("Data published")
