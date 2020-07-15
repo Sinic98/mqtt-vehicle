@@ -120,9 +120,11 @@ def enableSensors():
     #altitude
     alti = AltIMU()
     alti.enable_barometer()
+
+    return accel, magnet, gyro, alti
     
 
-def saveSensorValuesAsJson():
+def saveSensorValuesAsJson(accel, magnet, gyro, alti):
     #save sensor values in variables
 
     #simulate lidar value
@@ -214,7 +216,7 @@ def main():
         print("Client Setup finished")
         enableSensors()
         print("Sensors enabled")
-        json_data = saveSensorValuesAsJson()
+        json_data = saveSensorValuesAsJson(sensors)
         print("Values saved")
         publish(json_data)
         print("Data published")
