@@ -38,5 +38,3 @@ def stopClient():
     client.loop_stop()
 
 
-client = setupClient()
-publish("hi", client)
