@@ -36,4 +36,4 @@ def stopClient():
 
 
 setupClient()
-publish(hi)
+publish("hi")
