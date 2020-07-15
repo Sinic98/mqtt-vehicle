@@ -22,12 +22,15 @@ def setupClient():
 
     client.on_connect = on_connect
     client.on_publish = on_publish
-  #  lwm = "Error: Client disconnected!"     # last will message
-  #  client.will_set("/SysArch/V4/Test", lwm, QOS1)
+    
+    
+    #lwm = "Error: Client disconnected!"     # last will message
+    #client.will_set("/SysArch/V4/Test", lwm, QOS1)
 
-  #   client.loop_start()
+     client.loop_start()
+     return client
 
-def publish(json_data):
+def publish(json_data, client):
     print(json_data)
     client.publish("/SysArch/V4/Test", json_data)
 
