@@ -219,7 +219,7 @@ print("MySQL connected")
 
 
 def loginRequest(client, loggedIn):
-    loginRequest = "no"
+    loginRequest = False:
     loginRequest = input("Do you want to use the vehicle? (yes/no)")  # wird ersetzt durch RFID
     if loginRequest == "yes":
         client.publish("/V4/loginRequest", loginRequest)
@@ -233,7 +233,8 @@ def loginRequest(client, loggedIn):
             print("log in failed, you are not entiteled to use this vehicle!")
             loggedIn = False
             return loggedIn
-
+    else:
+        print("No Login request")
 
 
 
