@@ -219,10 +219,10 @@ print("MySQL connected")
 
 
 def main():
-    loggedIn = false
+    loggedIn = False
     client = setupClient()
     print("Client Setup finished")
-    while loginRequest(client, loggedIn) == false:
+    while loginRequest(client, loggedIn) == False:
         time.sleep(0.01)
     accel, magnet, gyro, alti = enableSensors()
     print("Sensors enabled")

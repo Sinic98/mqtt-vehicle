@@ -16,13 +16,12 @@ def loginRequest(client,loggedIn):
         print("Login request sent to webserver")
         loginAnswer = "validated"           # wird durch antwort von Webgruppe ersetzt"
         if loginAnswer == "validated":
-            loggedIn = true
+            loggedIn = True
             print("log in succesfull")
-            loggedIn = true
             return loggedIn
         else:
             print("log in failed, you are not entiteled to use this vehicle!")
-            loggedIn = false      
+            loggedIn = False
             return loggedIn
 
 
