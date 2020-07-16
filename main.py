@@ -218,15 +218,11 @@ db = mysql.connector.connect(user='pi8', password='aut-pi8', host='192.168.200.1
 print("MySQL connected")
 
 
-def loginRequest():
-    if loginRequest == true
-
-
 def main():
     loggedIn = false
     client = setupClient()
     print("Client Setup finished")
-    while loginRequest(client, loggedIn) == false: 
+    while loginRequest(client, loggedIn) == false:
     accel, magnet, gyro, alti = enableSensors()
     print("Sensors enabled")
     values2db()
