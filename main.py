@@ -99,7 +99,8 @@ def setupClient():
 
     client.loop_start()
    
-
+def subscribe(client, topic)
+    client.subsribe(topic)
 def publish(client, topic, data):
    #print(json_data)
     client.publish(topic, data)
@@ -221,10 +222,11 @@ print("MySQL connected")
 def loginRequest(client, loggedIn):
     loginRequest = "no"
     loginRequest = input("Do you want to use the vehicle? (yes/no)")  # wird ersetzt durch RFID
-   # if loginRequest == "yes":
+    if loginRequest == "yes" :
         client.publish("/V4/loginRequest", loginRequest)
         print("Login request sent to webserver")
-        loginAnswer = "validated"  # wird durch antwort von Webgruppe ersetzt"
+        client.subscribe("/SysArch/V4/LoginRequest)  # wird durch antwort von Webgruppe ersetzt"
+        # erhaltene Daten einlesen?! loginAnswer = ...
         if loginAnswer == "validated":
             loggedIn = True
             print("log in succesfull")
