@@ -218,11 +218,30 @@ db = mysql.connector.connect(user='pi8', password='aut-pi8', host='192.168.200.1
 print("MySQL connected")
 
 
+def loginRequest(client, loggedIn):
+    loginRequest = "no"
+    loginRequest = input("Do you want to use the vehicle? (yes/no)")  # wird ersetzt durch RFID
+    if loginRequest == "yes":
+        client.publish("/V4/loginRequest", loginRequest)
+        print("Login request sent to webserver")
+        loginAnswer = "validated"  # wird durch antwort von Webgruppe ersetzt"
+        if loginAnswer == "validated":
+            loggedIn = True
+            print("log in succesfull")
+            return loggedIn
+        else:
+            print("log in failed, you are not entiteled to use this vehicle!")
+            loggedIn = False
+            return loggedIn
+
+
+
+
 def main():
     loggedIn = False
     client = setupClient()
     print("Client Setup finished")
-    while logedIn(client, loggedIn) == False:
+    while loginRequest(client, loggedIn) == False:
         time.sleep(0.01)
     accel, magnet, gyro, alti = enableSensors()
     print("Sensors enabled")
