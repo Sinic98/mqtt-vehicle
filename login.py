@@ -7,10 +7,27 @@ class LoginData():
         self.tokenID =tokenID
 
 
-username1= input("User: ")
-password1= input("Password: ")
-id= "sssss"
+def loginRequest(client,loggedIn):
+    
+    loginRequest = "no" 
+    loginRequest = input("Do you want to use the vehicle? (yes/no)")    # wird ersetzt durch RFID
+    if loginRequest == "yes":
+        client.publish("/V4/loginRequest", loginRequest)
+        print("Login request sent to webserver")
+        loginAnswer = "validated"           # wird durch antwort von Webgruppe ersetzt"
+        if loginAnswer == "validated":
+            loggedIn = true
+            print("log in succesfull")
+            loggedIn = true
+            return loggedIn
+        else:
+            print("log in failed, you are not entiteled to use this vehicle!")
+            loggedIn = false      
+            return loggedIn
 
-logindata=LoginData(timestamp= time.time()*1000, username=username1, password = password1, tokenID = id)
-logindatajson=json.dumps(logindata.__dict__)
-print(logindatajson)
+
+
+
+
+
+

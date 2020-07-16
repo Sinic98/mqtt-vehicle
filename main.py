@@ -59,6 +59,7 @@ import json
 import time
 from gpiozero import CPUTemperature
 import random
+import login
 
 import paho.mqtt.client as mqtt
 from time import sleep
@@ -99,9 +100,9 @@ def setupClient():
     client.loop_start()
    
 
-def publish(json_data, client):
+def publish(client, topic, data):
    #print(json_data)
-    client.publish("/SysArch/V4/Test", json_data)
+    client.publish(topic, data)
 
 def stopClient():
     client.loop_stop()
@@ -217,10 +218,15 @@ db = mysql.connector.connect(user='pi8', password='aut-pi8', host='192.168.200.1
 print("MySQL connected")
 
 
+def loginRequest():
+    if loginRequest == true
+
+
 def main():
-    loggedIn = True
+    loggedIn = false
     client = setupClient()
     print("Client Setup finished")
+    while loginRequest(client, loggedIn) == false
     accel, magnet, gyro, alti = enableSensors()
     print("Sensors enabled")
     values2db()
@@ -228,11 +234,13 @@ def main():
     while loggedIn:
         json_data = saveSensorValuesAsJson(accel, magnet, gyro, alti)
         #print("Values saved")
-        publish(json_data, client)
+        publish(client, "/SysArch/V4/Test", json_data)
         #print("Data published")
         time.sleep(0.1)
 
     stopClient()
+
+
 
 if __name__ == "__main__":
     main()
