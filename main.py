@@ -210,7 +210,7 @@ def saveSensorValuesAsJson(accel, magnet, gyro, alti):
     json_data = lidar_data + "," + humidity_data + "," + steeringAngle_data + "," + temperature_data + "," + speed_data + "," + altimeter_data + "," + gyro_data + "," + magnetometer_data + "," + acceleration_data
     return json_data
 
-def values2db()
+def values2db():
     db = mysql.connector.connect(user='pi8', password='aut-pi8', host='192.168.200.108, database='mqttclient')
     print("MySQL connected")
 
