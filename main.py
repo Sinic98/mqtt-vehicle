@@ -92,8 +92,8 @@ def setupClient():
     client.on_publish = on_publish
     
     
-    #lwm = "Error: Client disconnected!"     # last will message
-    #client.will_set("/SysArch/V4/Test", lwm, QOS1)
+    lwm = "Error: Client disconnected!"     # last will message
+    client.will_set("/SysArch/V4/Test", lwm, QOS2)
 
     return client
 
