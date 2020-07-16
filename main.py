@@ -223,6 +223,7 @@ def main():
     client = setupClient()
     print("Client Setup finished")
     while loginRequest(client, loggedIn) == false:
+        time.sleep(0.01)
     accel, magnet, gyro, alti = enableSensors()
     print("Sensors enabled")
     values2db()
