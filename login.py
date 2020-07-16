@@ -9,7 +9,8 @@ class LoginData():
 
 loginRequest = input("wollen sie sich einloggen")
 print(loginRequest)
-
+if loginRequest == "ja":
+    print("geht doch")
 
 
 
