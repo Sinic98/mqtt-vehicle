@@ -221,7 +221,7 @@ def main():
     print("Client Setup finished")
     accel, magnet, gyro, alti = enableSensors()
     print("Sensors enabled")
-    values2db()
+    #values2db()
 
     while loggedIn:
         json_data = saveSensorValuesAsJson(accel, magnet, gyro, alti)
