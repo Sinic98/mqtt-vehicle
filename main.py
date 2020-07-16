@@ -226,7 +226,7 @@ def main():
     loggedIn = false
     client = setupClient()
     print("Client Setup finished")
-    while loginRequest(client, loggedIn) == false
+    while loginRequest(client, loggedIn) == false: 
     accel, magnet, gyro, alti = enableSensors()
     print("Sensors enabled")
     values2db()
