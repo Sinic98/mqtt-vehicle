@@ -92,7 +92,7 @@ def setupClient():
     client.on_publish = on_publish
     
     
-    lwm = "Error: Client disconnected!"     # last will message
+    lwm = "Error: Client disconnected. Data loss may occur!"     # last will message
     client.will_set("/SysArch/V4/Test", lwm, QOS2)
 
     return client
@@ -221,7 +221,7 @@ print("MySQL connected")
 def loginRequest(client, loggedIn):
     loginRequest = "no"
     loginRequest = input("Do you want to use the vehicle? (yes/no)")  # wird ersetzt durch RFID
-    if loginRequest == "yes":
+   # if loginRequest == "yes":
         client.publish("/V4/loginRequest", loginRequest)
         print("Login request sent to webserver")
         loginAnswer = "validated"  # wird durch antwort von Webgruppe ersetzt"
@@ -247,7 +247,7 @@ def main():
         time.sleep(0.01)
     accel, magnet, gyro, alti = enableSensors()
     print("Sensors enabled")
-    values2db()
+   # values2db()
 
     while loggedIn:
         json_data = saveSensorValuesAsJson(accel, magnet, gyro, alti)
