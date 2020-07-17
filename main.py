@@ -24,6 +24,7 @@ def main():
     loggedIn = False
     client = mqtt.setupClient()
     print("Client Setup finished")
+    sleep(0.1)
     while loggedIn == False:
         loggedIn = login.loginRequest(client, loggedIn)
     print("Login succesfull!")
@@ -34,7 +35,7 @@ def main():
     while loggedIn:
         json_data = sensors.saveSensorValuesAsJson(accel, magnet, gyro, alti)
         #print("Values saved")
-        mqtt.publish(json_data, client)
+        mqtt.publish("/SysArch/V4", json_data, client)
         #print("Data published")
         time.sleep(0.1)
 
