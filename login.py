@@ -7,10 +7,17 @@ class LoginData():
         self.tokenID =tokenID
 
 
-username1= input("User: ")
-password1= input("Password: ")
-id= "sssss"
+def loginRequest(client, loggedIn):
+    if raw_input("Do you want to log in? (yes/no)") == 'yes':
+        login = LoginData(timestamp=time.time()*1000, tokenID="TOKENIDEINFUEGEN")
+        login_json = json.dumps(login.__dict__)
+        client.publish("/V4/LoginRequest", login_json)
+        loggedIn = True
+        return loggedIn
+    else:
+        time.sleep(0.1)
+        loggedIn = False
+        return loggedIn
 
-logindata=LoginData(timestamp= time.time()*1000, username=username1, password = password1, tokenID = id)
-logindatajson=json.dumps(logindata.__dict__)
-print(logindatajson)
+
+
