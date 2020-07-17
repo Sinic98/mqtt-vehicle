@@ -14,9 +14,10 @@ def loginRequest(client, loggedIn):
         mqtt_client.publish("/SysArch/V4/LoginRequest", login_json, client)
         print("LoginRequest")
         loggedIn = True
+        time.sleep(0.5)
         return loggedIn
     else:
-        time.sleep(0.1)
+        time.sleep(0.5)
         loggedIn = False
         return loggedIn
 
