@@ -5,7 +5,7 @@ import time
 from gpiozero import CPUTemperature
 import random
 
-import paho.mqtt.client as mqtt
+
 from time import sleep
 
 from constants import *         # Includes addresses on I2C bus
@@ -16,6 +16,7 @@ from altimu import AltIMU
 import mysql.connector
 import sensors
 import login
+import mqtt_client
 
 
 
