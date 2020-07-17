@@ -1,7 +1,7 @@
 
 import sensors
 
-def offlinehandler(connected):
+def offlinehandler(connected, accel, magnet, gyro, alti):
     if not connected:
         file = open("offline.txt", "r")
         while not connected:
