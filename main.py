@@ -22,7 +22,7 @@ import mqtt_client
 
 def main():
     loggedIn = False
-    client = mqtt.setupClient()
+    client = mqtt_client.setupClient()
     print("Client Setup finished")
     sleep(0.1)
     while loggedIn == False:
@@ -39,7 +39,7 @@ def main():
         #print("Data published")
         time.sleep(0.1)
 
-    mqtt.stopClient()
+    mqtt_client.stopClient()
 
 if __name__ == "__main__":
     main()
