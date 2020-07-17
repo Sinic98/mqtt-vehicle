@@ -15,7 +15,6 @@ from lps25h import LPS25H       # Barometric Pressure & Temperature
 from altimu import AltIMU
 import mysql.connector
 import sensors
-import mqtt
 import login
 
 

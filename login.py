@@ -11,8 +11,7 @@ def loginRequest(client, loggedIn):
     if raw_input("Do you want to log in? (yes/no)") == 'yes':
         login = LoginData(timestamp=time.time()*1000, tokenID="TOKENIDEINFUEGEN")
         login_json = json.dumps(login.__dict__)
-        print(login_json)
-        mqtt.publish("/V4/LoginRequest", login_json, client)
+        mqtt.publish("/SysArch/V4/LoginRequest", login_json, client)
         print("LoginRequest")
         loggedIn = True
         return loggedIn
