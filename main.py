@@ -38,7 +38,7 @@ def main():
         mqtt_client.publish("/SysArch/V4", json_data, client)
         connected = False
         if connected == False:
-            database.offlinehandler(connected, accel, magnet, gyro, alti)
+            database.offlinehandler(connected, accel, magnet, gyro, alti, client)
         time.sleep(0.1)
 
     mqtt_client.stopClient()

@@ -3,7 +3,7 @@ import sensors
 import time
 import mqtt_client
 
-def offlinehandler(connected, accel, magnet, gyro, alti):
+def offlinehandler(connected, accel, magnet, gyro, alti, client):
     if not connected:
         file = open("offline.txt", "w+")
         while not connected:
