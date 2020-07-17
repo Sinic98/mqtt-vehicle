@@ -71,16 +71,20 @@ from altimu import AltIMU
 import mysql.connector
 import sensors
 import mqtt
+import login
 
 
 
 def main():
-    loggedIn = True
+    loggedIn = False
     client = setupClient()
     print("Client Setup finished")
+    while loggedIn == False:
+        loggedIn = loginRequest(client, loggedIn)
+
     accel, magnet, gyro, alti = enableSensors()
     print("Sensors enabled")
-    values2db()
+    #values2db()
 
     while loggedIn:
         json_data = saveSensorValuesAsJson(accel, magnet, gyro, alti)
