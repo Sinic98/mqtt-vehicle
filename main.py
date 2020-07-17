@@ -5,7 +5,6 @@ import time
 from gpiozero import CPUTemperature
 import random
 
-
 from time import sleep
 
 from constants import *         # Includes addresses on I2C bus
@@ -17,7 +16,7 @@ import mysql.connector
 import sensors
 import login
 import mqtt_client
-
+import database
 
 
 def main():
@@ -25,6 +24,7 @@ def main():
     client = mqtt_client.setupClient()
     print("Client Setup finished")
     sleep(0.1)
+    connected = True
     while loggedIn == False:
         loggedIn = login.loginRequest(client, loggedIn)
     print("Login succesfull!")
@@ -34,9 +34,10 @@ def main():
 
     while loggedIn:
         json_data = sensors.saveSensorValuesAsJson(accel, magnet, gyro, alti)
-        #print("Values saved")
+
         mqtt_client.publish("/SysArch/V4", json_data, client)
-        #print("Data published")
+        connected = False
+        offlinehandler(connected)
         time.sleep(0.1)
 
     mqtt_client.stopClient()

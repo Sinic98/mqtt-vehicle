@@ -1,7 +1,10 @@
-def
-values2db()
 
-db = mysql.connector.connect(user='pi8', password='aut-pi8', host='192.168.200.108, database='
-mqttclient
-')
-print("MySQL connected")
+import sensors
+
+def offlinehandler(connected):
+    if not connected:
+        file = open("offline.txt", "r")
+        while not connected:
+            json_data = sensors.saveSensorValuesAsJson(accel, magnet, gyro, alti)
+            file.write(json_data)
+        file.close()
