@@ -81,7 +81,7 @@ def main():
     print("Client Setup finished")
     while loggedIn == False:
         loggedIn = login.loginRequest(client, loggedIn)
-
+    print("Login succesfull!")
     accel, magnet, gyro, alti = sensors.enableSensors()
     print("Sensors enabled")
     #values2db()

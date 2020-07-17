@@ -1,9 +1,8 @@
 import json
 import time
 class LoginData():
-    def __init__(self, timestamp, username, password, tokenID):
+    def __init__(self, timestamp, tokenID):
         self.timestamp =timestamp
-        self.username =username
         self.tokenID =tokenID
 
 
@@ -12,6 +11,7 @@ def loginRequest(client, loggedIn):
         login = LoginData(timestamp=time.time()*1000, tokenID="TOKENIDEINFUEGEN")
         login_json = json.dumps(login.__dict__)
         client.publish("/V4/LoginRequest", login_json)
+        print("LoginRequest")
         loggedIn = True
         return loggedIn
     else:
