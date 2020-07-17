@@ -77,7 +77,7 @@ import login
 
 def main():
     loggedIn = False
-    client = setupClient()
+    client = mqtt.setupClient()
     print("Client Setup finished")
     while loggedIn == False:
         loggedIn = loginRequest(client, loggedIn)
