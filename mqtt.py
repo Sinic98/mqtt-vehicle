@@ -1,3 +1,6 @@
+import paho.mqtt.client as mqtt
+
+
 def setupClient():
     # creates a MQTT Client
 
