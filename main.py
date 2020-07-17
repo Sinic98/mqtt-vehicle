@@ -35,7 +35,7 @@ def main():
     while loggedIn:
         json_data = sensors.saveSensorValuesAsJson(accel, magnet, gyro, alti)
         #print("Values saved")
-        mqtt.publish("/SysArch/V4", json_data, client)
+        mqtt_client.publish("/SysArch/V4", json_data, client)
         #print("Data published")
         time.sleep(0.1)
 
