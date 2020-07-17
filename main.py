@@ -80,20 +80,20 @@ def main():
     client = mqtt.setupClient()
     print("Client Setup finished")
     while loggedIn == False:
-        loggedIn = loginRequest(client, loggedIn)
+        loggedIn = login.loginRequest(client, loggedIn)
 
-    accel, magnet, gyro, alti = enableSensors()
+    accel, magnet, gyro, alti = sensors.enableSensors()
     print("Sensors enabled")
     #values2db()
 
     while loggedIn:
-        json_data = saveSensorValuesAsJson(accel, magnet, gyro, alti)
+        json_data = sensors.saveSensorValuesAsJson(accel, magnet, gyro, alti)
         #print("Values saved")
-        publish(json_data, client)
+        mqtt.publish(json_data, client)
         #print("Data published")
         time.sleep(0.1)
 
-    stopClient()
+    mqtt.stopClient()
 
 if __name__ == "__main__":
     main()
