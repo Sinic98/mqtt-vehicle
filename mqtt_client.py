@@ -22,7 +22,7 @@ def setupClient():
     client.on_publish = on_publish
 
     lwm = "Error: Client disconnected. Dataloss may occur!"     # last will message
-    client.will_set("/SysArch/V4", lwm, 1)
+    client.will_set("/SysArch/V4", lwm, 1, retain = True)
     client.loop_start()
     return client
 
