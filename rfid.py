@@ -1,5 +1,5 @@
 import RPi.GPIO as GPIO
-from MFRC522 import *
+from MFRC522.MFRC522 import *
 import signal
 
 def RFIDRead():
