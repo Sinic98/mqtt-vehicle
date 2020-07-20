@@ -17,7 +17,7 @@ import sensors
 import login
 import mqtt_client
 import database
-import rfid
+#import rfid
 
 
 
