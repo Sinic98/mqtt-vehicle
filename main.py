@@ -33,7 +33,7 @@ def main():
     accel, magnet, gyro, alti = sensors.enableSensors()
     print("Sensors enabled")
     #values2db()
-    (status, uid) = rfid.RFIDRead()
+    #(status, uid) = rfid.RFIDRead()
     print(status, uid)
 
     while loggedIn:
