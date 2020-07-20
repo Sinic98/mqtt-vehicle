@@ -3,9 +3,9 @@ import paho.mqtt.client as mqtt
 
 def setupClient():
     # creates a MQTT Client
-    client.connected_flag = False
 
     client = mqtt.Client("Pi8")
+    client.connected_flag = False
 
     client.username_pw_set("V4", "DE7")
     client.connect("localhost", 8884)
