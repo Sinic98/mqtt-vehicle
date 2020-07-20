@@ -29,7 +29,7 @@ def setupClient():
        # client.disconnect_flag = True
 
     def on_publish(client, userdata, rc):
-        print(".")
+        sys.stdout.write(".")
         pass
 
     client.on_connect = on_connect
