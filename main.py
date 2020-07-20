@@ -33,7 +33,7 @@ def main():
         loggedIn = login.loginRequest(client, loggedIn)
     print("Login succesfull!")
     accel, magnet, gyro, alti = sensors.enableSensors()
-    print("Sensors enabled")
+    #print("Sensors enabled")
     #values2db()
     (status, uid) = rfid.RFIDRead()
     print(status, uid)
