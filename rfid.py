@@ -1,4 +1,4 @@
-import MFC522.Read as rfid
+from MFRC522/Read import *
 
 def RFIDRead():
     (status,uid) = rfid.MIFAREReader.MFRC522_Anticoll()
