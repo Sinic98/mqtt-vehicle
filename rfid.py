@@ -4,7 +4,7 @@ import signal
 
 def RFIDRead():
    
-   MIFAREReader = MFRC522.MFRC522()
+   MIFAREReader = MFRC522()
    (status,uid) = MIFAREReader.MFRC522_Anticoll()
    
 
