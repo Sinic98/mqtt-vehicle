@@ -12,14 +12,19 @@ def setupClient():
         if rc == 0:
             print("CONNACK received with code %d." % (rc))
             client.connected_flag = True
-            client.disconnect_flag = False
+            #client.disconnect_flag = False
         else:
             print("Connection refused with code %d." %(rc))
            # client.connected_flag = False
            # client.disconnected_flag = True
 
     def on_disconnect(client, userdata, rc):
-        logging.info("disconnecting reason  " + str(rc))
+        if rc!= 0:
+        print("Unexpected disconnection! disconnecting reason:  " + str(rc))
+        client.connected_flag = False
+        else:
+        print("Disconnected: " + str(rc))
+
         #client.connected_flag = False
        # client.disconnect_flag = True
 
