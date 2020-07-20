@@ -17,6 +17,7 @@ import sensors
 import login
 import mqtt_client
 import database
+import rfid
 
 
 
@@ -32,7 +33,7 @@ def main():
     accel, magnet, gyro, alti = sensors.enableSensors()
     print("Sensors enabled")
     #values2db()
-    RFIDRead()
+    rfid.RFIDRead()
 
     while loggedIn:
         json_data = sensors.saveSensorValuesAsJson(accel, magnet, gyro, alti)
