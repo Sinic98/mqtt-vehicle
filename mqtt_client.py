@@ -3,16 +3,18 @@ import paho.mqtt.client as mqtt
 
 def setupClient():
     # creates a MQTT Client
+    client.connected_flag = False
 
     client = mqtt.Client("Pi8")
 
     client.username_pw_set("V4", "DE7")
     client.connect("localhost", 8884)
-
     print("Client connected")
 
     def on_connect(client, userdata, flags, rc):
         print("CONNACK received with code %d." % (rc))
+        client.connected_flag = True
+        client.disconnect_flag = False
 
     def on_disconnect(client, userdata, rc):
         logging.info("disconnecting reason  " + str(rc))
