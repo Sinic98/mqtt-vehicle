@@ -1,4 +1,4 @@
-import RFID as rfid
+import Read as rfid
 
 def RFIDRead():
     (status,uid) = rfid.MIFAREReader.MFRC522_Anticoll()
