@@ -36,7 +36,7 @@ def main():
         json_data = sensors.saveSensorValuesAsJson(accel, magnet, gyro, alti)
 
         mqtt_client.publish("/SysArch/V4", json_data, client)
-        if client.connected_flag == False:
+        if mqtt_client.connected_flag == False:
             database.offlinehandler(mqtt_client.connected_flag, accel, magnet, gyro, alti, client)
         time.sleep(0.1)
 
