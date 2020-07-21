@@ -5,7 +5,7 @@ import json
 
 # create a MQTT client
 def setupClient():
-
+    global loginAnswer = ""
     client = mqtt.Client("Pi8")
     client.username_pw_set("V4", "DE7")
     client.connect("localhost", 8884)
