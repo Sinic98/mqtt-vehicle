@@ -19,6 +19,7 @@ import mqtt_client
 import database
 import rfid
 import sys
+import os
 import termios
 import tty
 import gui
