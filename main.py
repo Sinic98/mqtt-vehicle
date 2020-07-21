@@ -53,7 +53,7 @@ def main():
         database.offlinehandler(client.connected_flag, accel, magnet, gyro, alti, client)
     time.sleep(0.1)
 
-    gui.gui()
+    gui.idle()
 
     while loggedIn == False:
         key = inkey()
