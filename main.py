@@ -32,7 +32,7 @@ def main():
     connected = True
     while requestsent == False:
         #loggedIn = login.loginRequest(client, loggedIn)
-        requestsent = login.rfidRequest(client)
+        requestsent = login.rfidRequest(client, requestsent)
         
         while loggedIn == False:
             loggedIn = login.answer_handler(loggedIn)
