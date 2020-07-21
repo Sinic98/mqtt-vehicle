@@ -39,9 +39,9 @@ def setupClient():
     def on_message(client, userdata, message):
         print "Message received: "  + message.payload
         if message.payload == login.rightLogin:
-           return  login.loggedIn = True
+           return loggedIn = True
         else
-            return  login.loggedIn = False
+            return loggedIn = False
             
 
     client.on_connect = on_connect
