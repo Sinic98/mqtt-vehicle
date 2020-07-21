@@ -30,13 +30,12 @@ def main():
     sleep(0.1)
     connected = True
     while loggedIn == False:
-        loggedIn = login.loginRequest(client, loggedIn)
-    print("Login succesfull!")
+        #loggedIn = login.loginRequest(client, loggedIn)
+        loggedIn = login.rfidRequest(client, loggedIn)
     accel, magnet, gyro, alti = sensors.enableSensors()
     #print("Sensors enabled")
     #values2db()
-    (status, uid) = rfid.RFIDRead()
-    print(status, uid)
+    
 
     while loggedIn:
         json_data = sensors.saveSensorValuesAsJson(accel, magnet, gyro, alti)

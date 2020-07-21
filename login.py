@@ -7,6 +7,15 @@ class LoginData():
         self.tokenID =tokenID
         self.login = login
 
+class LoginConfirm():
+    def __init__(certified)
+        #self.timestamp = timestamp
+        #self.login = login
+        self.certified = certified
+        #self.tokenID = tokenID
+        #self.user = user
+
+rightLogin = LoginConfirm(TRUE)       
 
 def loginRequest(client, loggedIn):
     if raw_input("Do you want to log in? (yes/no)") == 'yes':
@@ -21,6 +30,22 @@ def loginRequest(client, loggedIn):
         time.sleep(0.5)
         loggedIn = False
         return loggedIn
+
+def rfidRequest(client, loggedIn):
+    
+    uid = ""
+    while uid == "":
+        (status, uid) = RFIDRead()
+    
+   
+    login = LoginData(timestamp=time.time()*1000, tokenID = uid, login = True)
+    login_json = json.dumps(login.__dict__)
+    print(login_json)
+        
+    mqtt_client.publish("/SysArch/V4/com2/web", login_json, client)
+    print("Login Request sent")
+            
+            
 
 def logout(client, loggedIn):
     login = LoginData(timestamp=time.time()*1000, tokenID=" ", login = False)

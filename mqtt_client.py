@@ -1,5 +1,6 @@
 import paho.mqtt.client as mqtt
 import time
+import login
 # create a MQTT client
 def setupClient():
 
@@ -7,6 +8,9 @@ def setupClient():
     client.username_pw_set("V4", "DE7")
     client.connect("localhost", 8884)
     print("Client connected")
+
+    client.subscribe("/SysArch/V4/com2/web")
+    print("Client subscribed")
 
     def on_connect(client, userdata, flags, rc):
         if rc == 0:
@@ -32,8 +36,17 @@ def setupClient():
         print("Data published")
         pass
 
+    def on_message(client, userdata, message):
+        print "Message received: "  + message.payload
+        if message.payload == login.rightLogin
+           return  login.loggedIn = TRUE
+        else
+            return  login.loggedIn = FALSE
+            
+
     client.on_connect = on_connect
     client.on_publish = on_publish
+    client.on_message = on_message
 
     lwm = "Error: Client disconnected. Dataloss may occur!"     # last will message
     client.will_set("/SysArch/V4" + str(time.time() * 1000), lwm, 1, retain = True)
