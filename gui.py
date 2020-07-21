@@ -2,7 +2,7 @@ import sys
 import os
 
 def idle():
-    print("Welcome, " + user)
+    print("Welcome, ")
     print("***  MENU  *** \n\n")
     print("~ 1-Car Stats ~")
     print("~ 2-Air conditioning ~")
