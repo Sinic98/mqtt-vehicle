@@ -29,11 +29,11 @@ def main():
     print("Client Setup finished")
     sleep(0.1)
     connected = True
-    while loggedIn == False:
+    while requestsent == False:
         #loggedIn = login.loginRequest(client, loggedIn)
-        loggedIn = login.rfidRequest(client)
-        while not loggedIn:
-            
+        requestsent = login.rfidRequest(client)
+        
+        while loggedIn == False:
             loggedIn = login.answer_handler(loggedIn)
     accel, magnet, gyro, alti = sensors.enableSensors()
     #print("Sensors enabled")

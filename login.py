@@ -19,19 +19,19 @@ class LoginConfirm():
 
 rightLogin = LoginConfirm(True)       
 
-def loginRequest(client, loggedIn):
+def loginRequest(client, requestsent):
     if raw_input("Do you want to log in? (yes/no)") == 'yes':
         login = LoginData(timestamp=time.time()*1000, tokenID="TOKENID EINFUEGEN", login = True)
         login_json = json.dumps(login.__dict__)
         mqtt_client.publish("V4/com2/web", login_json, client)
         print("LoginRequest")
-        loggedIn = True
+        requestsent = True
         time.sleep(0.9)
-        return loggedIn
+        return requestsent
     else:
         time.sleep(0.5)
-        loggedIn = False
-        return loggedIn
+        requestsent = False
+        return requestsent
 
 def rfidRequest(client):
     
@@ -54,8 +54,8 @@ def answer_handler(loggedIn):
             print("Warte....")
             x = False
     #global mqtt_client.loginAnswer
-        print("Schleife raus")
-        print(mqtt_client.loginAnswer["certified"])
+    print("Schleife raus")
+    print(mqtt_client.loginAnswer["certified"])
     #loggedIn = true
     return loggedIn
             
