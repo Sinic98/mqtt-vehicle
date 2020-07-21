@@ -15,7 +15,7 @@ class LoginConfirm():
         #self.tokenID = tokenID
         #self.user = user
 
-rightLogin = LoginConfirm(TRUE)       
+rightLogin = LoginConfirm(True)       
 
 def loginRequest(client, loggedIn):
     if raw_input("Do you want to log in? (yes/no)") == 'yes':
