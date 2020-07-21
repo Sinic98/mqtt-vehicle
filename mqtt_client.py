@@ -44,6 +44,7 @@ def setupClient():
         print "Message received: "  + message.payload
         #global loginAnswer
         mqtt_client.loginAnswer = json.loads(message.payload)
+        print("Moin")
         print("ERFOLG: " + loginAnswer["certified"])
             
 
