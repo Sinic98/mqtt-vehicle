@@ -160,7 +160,7 @@ def saveSensorValuesAsJson(accel, magnet, gyro, alti):
     humidity = Humidity(name="Humidity", timestamp=time.time() * 1000, value=humidityvalue)  # simulated value
     steeringAngle = SteeringAngle(name="SteeringAngle", timestamp=time.time() * 1000,
                                   value=steeringAnglevalue)  # simulated value
-    cputemperature = Temperature(name="CPU-Temperature", timestamp=time.time() * 1000,
+    cputemperature = Temperature(name="Temperature", timestamp=time.time() * 1000,
                                  value=cputemperaturevalue.temperature)  # real value
     speed = Speed(name="Speed", timestamp=time.time() * 1000, value=speedvalue)  # simulated value
     altimeter = Altimeter(name="Altimeter", timestamp=time.time() * 1000, value=altimetervalue)  # real value
