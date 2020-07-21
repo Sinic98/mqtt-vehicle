@@ -1,6 +1,8 @@
 import json
 import time
 import mqtt_client
+import rfid
+
 class LoginData():
     def __init__(self, timestamp, tokenID, login):
         self.timestamp =timestamp
@@ -35,7 +37,7 @@ def rfidRequest(client, loggedIn):
     
     uid = ""
     while uid == "":
-        (status, uid) = RFIDRead()
+        (status, uid) = rfid.RFIDRead()
     
    
     login = LoginData(timestamp=time.time()*1000, tokenID = uid, login = True)
