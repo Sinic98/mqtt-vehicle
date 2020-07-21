@@ -44,7 +44,8 @@ def answer_handler(loggedIn):
             print("Warte....")
             x = False
     print("Schleife raus")
-    print(mqtt_client.loginAnswer["certified"])
+    print(mqtt_client.loginAnswer)
+   # print(mqtt_client.loginAnswer["certified"])
     loggedIn = true
     return loggedIn
             
