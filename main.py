@@ -47,7 +47,7 @@ def main():
         time.sleep(0.1)
 
     mqtt_client.stopClient(client)
-    loggedIn = login.logout(Client, loggedIn)
+    loggedIn = login.logout(client, loggedIn)
 
 if __name__ == "__main__":
     main()
