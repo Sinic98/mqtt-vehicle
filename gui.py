@@ -1,6 +1,6 @@
 import sys
 import os
-from sensors import *
+from sensors import altimeter
 
 def idle():
     print("Welcome, ")
