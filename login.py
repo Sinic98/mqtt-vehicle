@@ -46,6 +46,13 @@ def rfidRequest(client, loggedIn):
         
     mqtt_client.publish("/SysArch/V4/com2/web", login_json, client)
     print("Login Request sent")
+
+def answer_handler(loggedIn):
+    global loginAnswer
+    loginAnswer = json.loads(message.payload)
+    print("ERFOLG2: " + loginAnswer["certified"])
+    loggedIn = true
+    return loggedIn
             
             
 
