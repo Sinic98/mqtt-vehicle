@@ -47,8 +47,17 @@ def main():
         database.offlinehandler(client.connected_flag, accel, magnet, gyro, alti, client)
     time.sleep(0.1)
 
-    mqtt_client.stopClient(client)
-    loggedIn = login.logout(client, loggedIn)
+    while loggedIn == True:
+        key = (inkey())
+        if key == "q":
+            mqtt_client.stopClient(client)
+            loggedIn = login.logout(client, loggedIn)
+        else:
+            print("Bis Bald Welt")
+
+        if key == "r":
+            exit()
+
 
 if __name__ == "__main__":
     main()
