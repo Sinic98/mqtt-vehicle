@@ -49,7 +49,7 @@ def rfidRequest(client):
 
 def answer_handler(loggedIn):
     global loginAnswer
-    print("ERFOLG2: " + oginAnswer["certified"])
+    print("ERFOLG2: " + loginAnswer["certified"])
     #loggedIn = true
     return loggedIn
             
