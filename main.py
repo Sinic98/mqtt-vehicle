@@ -1,66 +1,10 @@
-class Gyro():
-    def __init__(self, id, timestamp, valueX, valueY, valueZ):
-        self.id = id
-        self.timestamp = timestamp
-        self.valueX = valueX
-        self.valueY = valueY
-        self.valueZ = valueZ
-class Magnetometer():
-    def __init__(self, id, timestamp, valueX, valueY, valueZ):
-        self.id = id
-        self.timestamp = timestamp
-        self.valueX = valueX
-        self.valueY = valueY
-        self.valueZ = valueZ
-class Acceleration():
-    def __init__(self, id, timestamp, valueX, valueY, valueZ):
-        self.id = id
-        self.timestamp = timestamp
-        self.valueX = valueX
-        self.valueY = valueY
-        self.valueZ = valueZ
-class Altimeter():
-    def __init__(self, id, timestamp, value):
-        self.id = id
-        self.timestamp = timestamp
-        self.value = value
-class Speed():
-    def __init__(self, id, timestamp, value):
-        self.id = id
-        self.timestamp = timestamp
-        self.value = value
-class Temperature():
-    def __init__(self, id, timestamp, value):
-        self.id = id
-        self.timestamp = timestamp
-        self.value = value
-class SteeringAngle():
-    def __init__(self, id, timestamp, value):
-        self.id = id
-        self.timestamp = timestamp
-        self.value = value
-class Humidity():
-    def __init__(self, id, timestamp, value):
-        self.id = id
-        self.timestamp = timestamp
-        self.value = value
-class Lidar():
-    def __init__(self, id, timestamp, value):
-        self.id = id
-        self.timestamp = timestamp
-        self.value = value
-class LoginData():
-    def __init__(self, timestamp, tokenID, login):
-        self.timestamp =timestamp
-        self.tokenID =tokenID
-        self.login = login
+
 
 import json
 import time
 from gpiozero import CPUTemperature
 import random
 
-import paho.mqtt.client as mqtt
 from time import sleep
 
 from constants import *         # Includes addresses on I2C bus
@@ -70,30 +14,40 @@ from lps25h import LPS25H       # Barometric Pressure & Temperature
 from altimu import AltIMU
 import mysql.connector
 import sensors
-import mqtt
 import login
+import mqtt_client
+import database
+import rfid
+
+#
 
 
 
 def main():
     loggedIn = False
-    client = setupClient()
+    client = mqtt_client.setupClient()
     print("Client Setup finished")
+    sleep(0.1)
+    connected = True
     while loggedIn == False:
-        loggedIn = loginRequest(client, loggedIn)
-
-    accel, magnet, gyro, alti = enableSensors()
-    print("Sensors enabled")
+        #loggedIn = login.loginRequest(client, loggedIn)
+        loggedIn = login.rfidRequest(client, loggedIn)
+    accel, magnet, gyro, alti = sensors.enableSensors()
+    #print("Sensors enabled")
     #values2db()
+    
 
     while loggedIn:
-        json_data = saveSensorValuesAsJson(accel, magnet, gyro, alti)
-        #print("Values saved")
-        publish(json_data, client)
-        #print("Data published")
+        json_data = sensors.saveSensorValuesAsJson(accel, magnet, gyro, alti)
+
+        mqtt_client.publish("/SysArch/V4", json_data, client)
+        if client.connected_flag == False:
+            print("I am offline!")
+            database.offlinehandler(client.connected_flag, accel, magnet, gyro, alti, client)
         time.sleep(0.1)
 
-    stopClient()
+    mqtt_client.stopClient()
+    loggedIn = login.logout(Client, loggedIn)
 
 if __name__ == "__main__":
     main()
