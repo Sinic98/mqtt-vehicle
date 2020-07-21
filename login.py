@@ -37,7 +37,6 @@ def rfidRequest(client, requestsent):
     return requestsent
 
 def answer_handler(loggedIn):
-    time.sleep(8)
     x = True
     while mqtt_client.loginque == False:
         if x:
