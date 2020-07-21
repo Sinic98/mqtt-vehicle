@@ -11,7 +11,7 @@ def setupClient():
     client.connect("localhost", 8884)
     print("Client connected")
 
-    client.subscribe("/SysArch/V4/com2/web")
+    client.subscribe("/SysArch/V4/com2/car")
     print("Client subscribed")
 
     def on_connect(client, userdata, flags, rc):
