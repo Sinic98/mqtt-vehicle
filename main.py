@@ -46,7 +46,7 @@ def main():
             database.offlinehandler(client.connected_flag, accel, magnet, gyro, alti, client)
         time.sleep(0.1)
 
-    mqtt_client.stopClient()
+    mqtt_client.stopClient(client)
     loggedIn = login.logout(Client, loggedIn)
 
 if __name__ == "__main__":
