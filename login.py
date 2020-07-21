@@ -48,7 +48,7 @@ def rfidRequest(client):
     print("Login Request sent")
 
 def answer_handler(loggedIn):
-    global mqtt_client.loginAnswer
+    #global mqtt_client.loginAnswer
     print("ERFOLG2: " + mqtt_client.loginAnswer["certified"])
     #loggedIn = true
     return loggedIn
