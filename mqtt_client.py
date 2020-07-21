@@ -41,7 +41,7 @@ def setupClient():
         if message.payload == login.rightLogin:
             loggedIn = True
             return loggedIn
-        else
+        else:
             loggedIn = False
             return loggedIn
             
