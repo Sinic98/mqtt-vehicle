@@ -42,11 +42,13 @@ def answer_handler(loggedIn):
         if x:
             print("Warte....")
             x = False
-    print("Schleife raus")
+
     print(mqtt_client.loginAnswer)
     print(mqtt_client.loginAnswer["certified"])
     if str(mqtt_client.loginAnswer["certified"]) == "True":
         loggedIn = True
+    elif:
+        print("Access denied!")
     time.sleep(1)
     return loggedIn
             
