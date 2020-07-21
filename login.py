@@ -44,7 +44,7 @@ def answer_handler(loggedIn):
             x = False
     print("Schleife raus")
     print(mqtt_client.loginAnswer)
-   # print(mqtt_client.loginAnswer["certified"])
+    if mqtt_client.loginAnswer["certified"]
     loggedIn = True
     return loggedIn
             
