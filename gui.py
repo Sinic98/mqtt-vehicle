@@ -1,6 +1,6 @@
 import sys
 import os
-import sensors
+
 
 def idle():
     print("Welcome, ")
@@ -19,6 +19,7 @@ def idle():
         logout()
 
 def carstats():
+    import sensors
     os.system('cls' if os.name == 'nt' else 'clear')
     print("Car stats")
     print("Altimeter: " + sensors.altimetervalue)
