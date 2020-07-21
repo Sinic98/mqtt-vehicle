@@ -24,7 +24,7 @@ selection_menu = SelectionMenu(["item1", "item2", "item3"])
 submenu_item = SubmenuItem("Submenu item", selection_menu, menu)
 
 # Once we're done creating them, we just add the items to the menu
-menu.append_item(menu_item)cons
+menu.append_item(menu_item)
 menu.append_item(function_item)
 menu.append_item(command_item)
 menu.append_item(submenu_item)
