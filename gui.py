@@ -1,6 +1,6 @@
 import sys
 import os
-from sensors import *
+import sensors
 
 def idle():
     print("Welcome, ")
