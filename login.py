@@ -19,21 +19,8 @@ class LoginConfirm():
 
 rightLogin = LoginConfirm(True)       
 
-def loginRequest(client, requestsent):
-    if raw_input("Do you want to log in? (yes/no)") == 'yes':
-        login = LoginData(timestamp=time.time()*1000, tokenID="TOKENID EINFUEGEN", login = True)
-        login_json = json.dumps(login.__dict__)
-        mqtt_client.publish("V4/com2/web", login_json, client)
-        print("LoginRequest")
-        requestsent = True
-        time.sleep(0.9)
-        return requestsent
-    else:
-        time.sleep(0.5)
-        requestsent = False
-        return requestsent
 
-def rfidRequest(client):
+def rfidRequest(client, requestsent):
     
     uid = ""
     while uid == "":
@@ -46,6 +33,8 @@ def rfidRequest(client):
         
     mqtt_client.publish("/SysArch/V4/com2/web", login_json, client)
     print("Login Request sent")
+    requestsent = True
+    return requestsent
 
 def answer_handler(loggedIn):
     x = True
