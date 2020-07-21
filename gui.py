@@ -10,21 +10,21 @@ def idle():
 
     input = raw_input("Please enter the number of your choice: ")
 
-    if input == "0":
+    if input == "1":
         carstats()
-    elif input == "1":
+    elif input == "2":
         aircond()
-    elif input =="2":
+    elif input =="3":
         logout()
 
-def carstats(input):
+def carstats():
     os.system('cls' if os.name == 'nt' else 'clear')
     print("Car stats")
 
-def aircond(input):
+def aircond():
     os.system('cls' if os.name == 'nt' else 'clear')
     print("Air Cond")
 
-def logout(input):
+def logout():
     os.system('cls' if os.name == 'nt' else 'clear')
     print("Logout")
