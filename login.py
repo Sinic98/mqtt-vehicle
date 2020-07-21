@@ -48,8 +48,8 @@ def rfidRequest(client):
     print("Login Request sent")
 
 def answer_handler(loggedIn):
+    x = True
     while mqtt_client.loginAnswer == None:
-        x = True
         if x:
             print("Warte....")
             x = False
