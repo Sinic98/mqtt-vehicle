@@ -20,6 +20,7 @@ class LoginConfirm():
 rightLogin = LoginConfirm(True)       
 
 def loginRequest(client, loggedIn):
+    print("Kartoffel")
     if raw_input("Do you want to log in? (yes/no)") == 'yes':
         login = LoginData(timestamp=time.time()*1000, tokenID="TOKENID EINFUEGEN", login = True)
         login_json = json.dumps(login.__dict__)
