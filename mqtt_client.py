@@ -4,8 +4,7 @@ import login
 import json
 
 global loginAnswer
-loginAnswer = None
-global loginque 
+global loginque
 loginque = False
 
 # create a MQTT client
