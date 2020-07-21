@@ -41,7 +41,7 @@ def setupClient():
     def on_message(client, userdata, message):
         print "Message received: "  + message.payload
         loginAnswer = json.loads(message.payload)
-        print(loginAnswer["certified"])
+        print("ERFOLG: " + loginAnswer["certified"])
             
 
     client.on_connect = on_connect
