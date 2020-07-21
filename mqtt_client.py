@@ -43,7 +43,9 @@ def setupClient():
     def on_message(client, userdata, message):
         print "Message received: "  + message.payload
         #global loginAnswer
-        loginAnswer = json.loads(message.payload)
+        buffer=message.payload
+        print(buffer +"buffer")
+        loginAnswer = json.loads(buffer)
         print("Moin")
         print("ERFOLG: " + loginAnswer["certified"])
             
