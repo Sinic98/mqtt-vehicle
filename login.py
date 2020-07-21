@@ -45,7 +45,7 @@ def answer_handler(loggedIn):
     print("Schleife raus")
     print(mqtt_client.loginAnswer)
     print(mqtt_client.loginAnswer["certified"])
-    if mqtt_client.loginAnswer["certified"] == "True":
+    if str(mqtt_client.loginAnswer["certified"]) == "True":
         loggedIn = True
     time.sleep(1)
     return loggedIn
