@@ -37,62 +37,62 @@ def enableSensors():
 
 def saveSensorValuesAsJson(accel, magnet, gyro, alti):
     class Gyro():
-        def __init__(self, id, timestamp, valueX, valueY, valueZ):
-            self.id = id
+        def __init__(self, name, timestamp, valueX, valueY, valueZ):
+            self.name = name
             self.timestamp = timestamp
             self.valueX = valueX
             self.valueY = valueY
             self.valueZ = valueZ
 
     class Magnetometer():
-        def __init__(self, id, timestamp, valueX, valueY, valueZ):
-            self.id = id
+        def __init__(self, name, timestamp, valueX, valueY, valueZ):
+            self.name = name
             self.timestamp = timestamp
             self.valueX = valueX
             self.valueY = valueY
             self.valueZ = valueZ
 
     class Acceleration():
-        def __init__(self, id, timestamp, valueX, valueY, valueZ):
-            self.id = id
+        def __init__(self, name, timestamp, valueX, valueY, valueZ):
+            self.name = name
             self.timestamp = timestamp
             self.valueX = valueX
             self.valueY = valueY
             self.valueZ = valueZ
 
     class Altimeter():
-        def __init__(self, id, timestamp, value):
-            self.id = id
+        def __init__(self, name, timestamp, value):
+            self.name = name
             self.timestamp = timestamp
             self.value = value
 
     class Speed():
-        def __init__(self, id, timestamp, value):
-            self.id = id
+        def __init__(self, name, timestamp, value):
+            self.name = name
             self.timestamp = timestamp
             self.value = value
 
     class Temperature():
-        def __init__(self, id, timestamp, value):
-            self.id = id
+        def __init__(self, name, timestamp, value):
+            self.name = name
             self.timestamp = timestamp
             self.value = value
 
     class SteeringAngle():
-        def __init__(self, id, timestamp, value):
-            self.id = id
+        def __init__(self, name, timestamp, value):
+            self.name = name
             self.timestamp = timestamp
             self.value = value
 
     class Humidity():
-        def __init__(self, id, timestamp, value):
-            self.id = id
+        def __init__(self, name, timestamp, value):
+            self.name = name
             self.timestamp = timestamp
             self.value = value
 
     class Lidar():
-        def __init__(self, id, timestamp, value):
-            self.id = id
+        def __init__(self, name, timestamp, value):
+            self.name = name
             self.timestamp = timestamp
             self.value = value
 
@@ -156,21 +156,21 @@ def saveSensorValuesAsJson(accel, magnet, gyro, alti):
     # timestamp in ms since epoch
 
     # one value data
-    lidar = Lidar(id="Lidar", timestamp=time.time() * 1000, value=lidarvalue)  # simulated value
-    humidity = Humidity(id="Humidity", timestamp=time.time() * 1000, value=humidityvalue)  # simulated value
-    steeringAngle = SteeringAngle(id="SteeringAngle", timestamp=time.time() * 1000,
+    lidar = Lidar(name="Lidar", timestamp=time.time() * 1000, value=lidarvalue)  # simulated value
+    humidity = Humidity(name="Humidity", timestamp=time.time() * 1000, value=humidityvalue)  # simulated value
+    steeringAngle = SteeringAngle(name="SteeringAngle", timestamp=time.time() * 1000,
                                   value=steeringAnglevalue)  # simulated value
-    cputemperature = Temperature(id="CPU-Temperature", timestamp=time.time() * 1000,
+    cputemperature = Temperature(name="CPU-Temperature", timestamp=time.time() * 1000,
                                  value=cputemperaturevalue.temperature)  # real value
-    speed = Speed(id="Speed", timestamp=time.time() * 1000, value=speedvalue)  # simulated value
-    altimeter = Altimeter(id="Altimeter", timestamp=time.time() * 1000, value=altimetervalue)  # real value
+    speed = Speed(name="Speed", timestamp=time.time() * 1000, value=speedvalue)  # simulated value
+    altimeter = Altimeter(name="Altimeter", timestamp=time.time() * 1000, value=altimetervalue)  # real value
 
     # several value data
-    gyro = Gyro(id="Gyro", timestamp=time.time() * 1000, valueX=gyrovaluex, valueY=gyrovaluey,
+    gyro = Gyro(name="Gyro", timestamp=time.time() * 1000, valueX=gyrovaluex, valueY=gyrovaluey,
                 valueZ=gyrovaluez)  # real value
-    magnetometer = Magnetometer(id="Magnetometer", timestamp=time.time() * 1000, valueX=magentvaluex,
+    magnetometer = Magnetometer(name="Magnetometer", timestamp=time.time() * 1000, valueX=magentvaluex,
                                 valueY=magnetvaluey, valueZ=magnetvaluez)  # real value
-    acceleration = Acceleration(id="Acceleration", timestamp=time.time() * 1000, valueX=accelerationvaluex,
+    acceleration = Acceleration(name="Acceleration", timestamp=time.time() * 1000, valueX=accelerationvaluex,
                                 valueY=accelerationvaluey, valueZ=accelerationvaluez)  # real value
 
     # safe data in json formatted string
