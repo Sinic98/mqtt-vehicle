@@ -60,7 +60,7 @@ def setupClient():
 
     lwm = "Error: Client disconnected. Dataloss may occur!"     # last will message
     client.will_set("/SysArch/V4", lwm, 1, retain = False)
-    client.reconnect_delay_set(min_delay = 1, max_delay = 10)
+    #client.reconnect_delay_set(min_delay = 1, max_delay = 10)
     client.loop_start()
     return client
 
