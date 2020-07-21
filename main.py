@@ -25,6 +25,7 @@ import rfid
 
 def main():
     loggedIn = False
+    requestsent = False
     client = mqtt_client.setupClient()
     print("Client Setup finished")
     sleep(0.1)
