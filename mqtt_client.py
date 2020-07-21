@@ -46,8 +46,8 @@ def setupClient():
         buffer=message.payload
         print(buffer +"buffer")
         loginAnswer = json.loads(buffer)
-        print("Moin")
-        print(loginAnswer["certified"])
+        
+
             
 
     client.on_connect = on_connect
