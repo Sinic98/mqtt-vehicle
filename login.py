@@ -47,7 +47,7 @@ def answer_handler(loggedIn):
     print(mqtt_client.loginAnswer["certified"])
     if str(mqtt_client.loginAnswer["certified"]) == "True":
         loggedIn = True
-    elif:
+    else:
         print("Access denied!")
     time.sleep(1)
     return loggedIn
