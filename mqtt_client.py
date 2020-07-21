@@ -47,7 +47,7 @@ def setupClient():
         print(buffer +"buffer")
         loginAnswer = json.loads(buffer)
         print("Moin")
-        print("ERFOLG: " + loginAnswer["certified"])
+        print(loginAnswer["certified"])
             
 
     client.on_connect = on_connect
