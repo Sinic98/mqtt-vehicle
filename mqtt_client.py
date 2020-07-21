@@ -3,10 +3,11 @@ import time
 import login
 import json
 
+global loginAnswer
+loginAnswer = None
+
 # create a MQTT client
 def setupClient():
-    global loginAnswer
-    loginAnswer = None
     client = mqtt.Client("Pi8")
     client.username_pw_set("V4", "DE7")
     client.connect("localhost", 8884)
