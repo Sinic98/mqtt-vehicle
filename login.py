@@ -8,7 +8,7 @@ class LoginData():
         self.login = login
 
 class LoginConfirm():
-    def __init__(certified):
+    def __init__(self, certified):
         #self.timestamp = timestamp
         #self.login = login
         self.certified = certified
