@@ -19,9 +19,10 @@ def idle():
         logout()
 
 def carstats():
+    alti = sensors.altimeter
     os.system('cls' if os.name == 'nt' else 'clear')
     print("Car stats")
-    print("Altimeter: " + altimeter.value)
+    print("Altimeter: " + alti.value)
     print("Press 'b' for going back")
 
 def aircond():
