@@ -21,11 +21,9 @@ def setupClient():
         if rc == 0:
             print("CONNACK received with code %d." % (rc))
             client.connected_flag = True
-            #client.disconnect_flag = False
+
         else:
             print("Connection refused with code %d." %(rc))
-           # client.connected_flag = False
-           # client.disconnected_flag = True
 
     def on_disconnect(client, userdata, rc):
         if rc!= 0:
@@ -61,7 +59,7 @@ def setupClient():
     client.on_message = on_message
 
     lwm = "Error: Client disconnected. Dataloss may occur!"     # last will message
-    client.will_set("/SysArch/V4" + str(time.time() * 1000), lwm, 1, retain = False)
+    client.will_set("/SysArch/V4", lwm, 1, retain = False)
     client.reconnect_delay_set(min_delay = 1, max_delay = 10)
     client.loop_start()
     return client
