@@ -1,6 +1,8 @@
 import paho.mqtt.client as mqtt
 import time
 import login
+import json
+
 # create a MQTT client
 def setupClient():
 
@@ -38,12 +40,8 @@ def setupClient():
 
     def on_message(client, userdata, message):
         print "Message received: "  + message.payload
-        if message.payload == login.rightLogin:
-            loggedIn = True
-            return loggedIn
-        else:
-            loggedIn = False
-            return loggedIn
+        loginAnswer = json.load(message.payload)
+        print(loginAnswer.certified)
             
 
     client.on_connect = on_connect
