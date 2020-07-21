@@ -31,9 +31,16 @@ def setupClient():
     def on_publish(client, userdata, rc):
         print("data published \n")
         pass
+    def on_message(client, userdata, msg):
+        print(msg.topic + " " +str(msg.payload))
+        if msg.topic == "V4/com2/web"
+            json_logindata= str(msg.payload)
+            loginobject = json.loads(json_logindata)
+            return loginobject 
 
     client.on_connect = on_connect
     client.on_publish = on_publish
+    client.on_message = on_message
 
     lwm = "Error: Client disconnected. Dataloss may occur!"     # last will message
     client.will_set("/SysArch/V4" + str(time.time() * 1000), lwm, 1, retain = True)

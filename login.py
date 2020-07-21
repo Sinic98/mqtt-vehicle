@@ -6,14 +6,18 @@ class LoginData():
         self.timestamp =timestamp
         self.tokenID =tokenID
         self.login = login
+        self.user = user
 
 
 def loginRequest(client, loggedIn):
     if raw_input("Do you want to log in? (yes/no)") == 'yes':
+       # (status, uid) = rfid.RFIDRead()
         login = LoginData(timestamp=time.time()*1000, tokenID="TOKENID EINFUEGEN", login = True)
         login_json = json.dumps(login.__dict__)
         mqtt_client.publish("V4/com2/web", login_json, client)
         print("LoginRequest")
+        client.subscribe("V4/com2/web")
+        
         loggedIn = True
         time.sleep(0.9)
         return loggedIn

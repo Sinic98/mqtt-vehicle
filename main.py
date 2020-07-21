@@ -38,7 +38,7 @@ def main():
 
     while loggedIn:
         json_data = sensors.saveSensorValuesAsJson(accel, magnet, gyro, alti)
-
+        
         mqtt_client.publish("/SysArch/V4", json_data, client)
         if client.connected_flag == False:
             print("I am offline!")
