@@ -49,6 +49,10 @@ def rfidRequest(client):
 
 def answer_handler(loggedIn):
     while mqtt_client.loginAnswer == None:
+        x = True
+        if x:
+            print("Warte....")
+            x = False
     #global mqtt_client.loginAnswer
     print("ERFOLG2: " + mqtt_client.loginAnswer["certified"])
     #loggedIn = true
