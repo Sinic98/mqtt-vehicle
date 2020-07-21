@@ -33,7 +33,7 @@ def main():
         #loggedIn = login.loginRequest(client, loggedIn)
         loggedIn = login.rfidRequest(client, loggedIn)
         while loggedIn == False:
-        loggedIn = login.answer_handler(loggedIn)
+            loggedIn = login.answer_handler(loggedIn)
     accel, magnet, gyro, alti = sensors.enableSensors()
     #print("Sensors enabled")
     #values2db()
