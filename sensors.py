@@ -184,5 +184,5 @@ def saveSensorValuesAsJson(accel, magnet, gyro, alti):
     magnetometer_data = json.dumps(magnetometer.__dict__)
     acceleration_data = json.dumps(acceleration.__dict__)
 
-    json_data = lidar_data + "," + humidity_data + "," + steeringAngle_data + "," + temperature_data + "," + speed_data + "," + altimeter_data + "," + gyro_data + "," + magnetometer_data + "," + acceleration_data
+    json_data = "{\"SensorValue1:\" [" + lidar_data + "," + humidity_data + "," + steeringAngle_data + "," + temperature_data + "," + speed_data + "," + altimeter_data + "]" + "," "{\"SensorValue3:\" [" + gyro_data + "," + magnetometer_data + "," + acceleration_data + "]}"
     return json_data
