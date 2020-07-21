@@ -52,7 +52,7 @@ def main():
     time.sleep(0.1)
 
     while loggedIn == True:
-        key = (inkey())
+        key = inkey()
         if key == "q":
             mqtt_client.stopClient(client)
             loggedIn = login.logout(client, loggedIn)
