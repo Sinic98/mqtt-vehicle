@@ -5,6 +5,8 @@ import json
 
 global loginAnswer
 loginAnswer = None
+global loginque 
+loginque = False
 
 # create a MQTT client
 def setupClient():
@@ -47,6 +49,8 @@ def setupClient():
         loginAnswer = json.loads(buffer)
         print("In on_client")
         print(loginAnswer["certified"])
+        loginque = True
+        
 
 
             
