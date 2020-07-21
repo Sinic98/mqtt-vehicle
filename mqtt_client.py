@@ -51,8 +51,8 @@ def setupClient():
     client.on_message = on_message
 
     lwm = "Error: Client disconnected. Dataloss may occur!"     # last will message
-    client.will_set("/SysArch/V4" + str(time.time() * 1000), lwm, 1, retain = True)
-    client.reconnect_delay_set(min_delay = 1, max_delay = 15)
+    client.will_set("/SysArch/V4" + str(time.time() * 1000), lwm, 1, retain = False)
+    client.reconnect_delay_set(min_delay = 1, max_delay = 10)
     client.loop_start()
     return client
 
@@ -63,5 +63,5 @@ def publish(topic, data, client):
 def subscribe(topic, client):
     client.subscribe(topic, 2)
 
-def stopClient():
+def stopClient(client):
     client.loop_stop()
