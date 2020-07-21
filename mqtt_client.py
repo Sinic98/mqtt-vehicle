@@ -40,7 +40,7 @@ def setupClient():
 
     def on_message(client, userdata, message):
         print "Message received: "  + message.payload
-        loginAnswer = json.load(message.payload)
+        loginAnswer = json.loads(message.payload)
         print(loginAnswer.certified)
             
 
