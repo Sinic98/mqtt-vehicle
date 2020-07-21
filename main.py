@@ -31,7 +31,7 @@ def main():
     connected = True
     while loggedIn == False:
         #loggedIn = login.loginRequest(client, loggedIn)
-        loggedIn = login.rfidRequest(client, loggedIn)
+        loggedIn = login.rfidRequest(client)
         while loggedIn == False:
             loggedIn = login.answer_handler(loggedIn)
     accel, magnet, gyro, alti = sensors.enableSensors()
