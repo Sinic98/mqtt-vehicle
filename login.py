@@ -49,7 +49,6 @@ def rfidRequest(client):
 
 def answer_handler(loggedIn):
     global loginAnswer
-    loginAnswer = json.loads(message.payload)
     print("ERFOLG2: " + loginAnswer["certified"])
     #loggedIn = true
     return loggedIn
