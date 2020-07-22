@@ -14,7 +14,7 @@ from altimu import AltIMU
 
 
 global x
-x=0.1
+x = 0.1
 # enable sensors
 def enableSensors():
     # accel
@@ -114,10 +114,10 @@ def saveSensorValuesAsJson(accel, magnet, gyro, alti):
     lidarvalue = a
     # simulate humidity
 
-   # humidityvalue = random.randint(20, 60)
-    x = x + 0.1
-    b = math.sin(x)
-    humidityvalue = b
+    humidityvalue = random.randint(20, 60)
+   # x = x + 0.1
+   # b = math.sin(x)
+    #humidityvalue = b
 
     # simulate steering angle value
     firstrun = 1
