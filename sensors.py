@@ -110,14 +110,14 @@ def saveSensorValuesAsJson(accel, magnet, gyro, alti):
     # simulate lidar value
     #lidarvalue = random.randint(200, 220)
     global x
-    a = math.sin(x)
+    a = math.sin(x)+2
     x = x + 0.1
     lidarvalue = a
     # simulate humidity
 
     #humidityvalue = random.randint(20, 60)
     x = x + 0.1
-    b = math.sin(x)
+    b = math.sin(x) +2
     humidityvalue = b
 
     # simulate steering angle value
@@ -147,9 +147,8 @@ def saveSensorValuesAsJson(accel, magnet, gyro, alti):
     #    speed0 = 3
     #    speed1 = speed0 + 2
      #   speedvalue = random.randint(speed0, speed1)
-    x = x + 0.1
-    d = 2 * math.sin(x)
-    speed = d
+    d = 20 * math.sin(x) + 20
+    speedvalue = d
 
     altimetervalue = alti.getAltitude()
 
