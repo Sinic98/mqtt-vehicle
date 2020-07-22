@@ -27,6 +27,7 @@ import termios
 import tty
 import gui
 global json_data, accel, magnet, gyro, alti, client, loggout
+loggout = 'no'
 json_data = None
 
 def sensorvalues():
@@ -41,7 +42,7 @@ def gui():
     while True:
         loggout = raw_input()
         print("T2 lauft")
-        if loggout:
+        if loggout == 'q':
             return
 
 class myThread(threading.Thread):
