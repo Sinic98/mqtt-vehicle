@@ -30,6 +30,7 @@ global json_data, accel, magnet, gyro, alti, client, loggout, loggedIn
 loggedIn = False
 loggout = 'no'
 json_data = None
+aircon = False
 
 def sensorvalues():
     while True:
@@ -85,8 +86,8 @@ def carstats():
     if input == "b":
         gui()
 
-def aircond():
-    aircon = False
+def aircond(aircon):
+
     os.system('cls' if os.name == 'nt' else 'clear')
     print("\n*** Air Conditioning ***\n\n")
     print("Temperature (inside): ")
@@ -116,6 +117,7 @@ def logout():
         gui()
         t1.stop()
         t2.stop()
+        exit()
     elif input == "n":
         gui()
     return loggout
