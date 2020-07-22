@@ -42,6 +42,7 @@ def sensorvalues():
             mqtt_client.publish("/SysArch/V4/com2/web", loggoutmessage, client)
             print("Wait for response...")
             login.answer_handler(loggedIn)
+            print("Answerhandler done")
             #print("You are logged out!\nDon't forget your phone and your passengers :)")
             #print(" ")
             #print(" ")
