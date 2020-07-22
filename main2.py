@@ -26,7 +26,8 @@ import os
 import termios
 import tty
 import gui
-global json_data, accel, magnet, gyro, alti, client, loggout
+global json_data, accel, magnet, gyro, alti, client, loggout, loggedIn
+loggedIn = False
 loggout = 'no'
 json_data = None
 
