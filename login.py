@@ -45,15 +45,15 @@ def answer_handler(loggedIn):
 
   #  print(mqtt_client.loginAnswer)
    # print(mqtt_client.loginAnswer["certified"])
-    if str(mqtt_client.loginAnswer["certified"]) == "True" and str(mqtt_client.loginAnswer["login"] == "True"):
+    if str(mqtt_client.loginAnswer["certified"]) == "True" and str(mqtt_client.loginAnswer["login"]) == "True":
         print("login successfull!")
         loggedIn = True
-    elif str(mqtt_client.loginAnswer["certified"]) == "True" and str(mqtt_client.loginAnswer["login"] == "False"):
+    elif str(mqtt_client.loginAnswer["certified"]) == "True" and str(mqtt_client.loginAnswer["login"]) == "False":
         print("Logout successfull!")
         loggedIn = False
-    elif str(mqtt_client.loginAnswer["certified"]) == "False" and str(mqtt_client.loginAnswer["login"] == "True"):
+    elif str(mqtt_client.loginAnswer["certified"]) == "False" and str(mqtt_client.loginAnswer["login"]) == "True":
         print("Access denied!")
-    elif str(mqtt_client.loginAnswer["certified"]) == "False" and str(mqtt_client.loginAnswer["login"] == "False"):
+    elif str(mqtt_client.loginAnswer["certified"]) == "False" and str(mqtt_client.loginAnswer["login"]) == "False":
         print("Logout not successfull!")
         loggedIn = False
     else:
