@@ -57,7 +57,7 @@ def answer_handler(loggedIn):
         print("Logout not successfull!")
         loggedIn = False
        
-    time.sleep(1)
+    time.sleep(0.5)
     return loggedIn
             
             
