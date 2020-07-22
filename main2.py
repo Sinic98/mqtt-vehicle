@@ -71,7 +71,7 @@ def gui():
             print("air conditioning is on")
             print("   ")
             print("   ")
-        elif input == 'q' and loggedIn:
+        elif input == 'q':
             loggout = 'q'
             return
 
