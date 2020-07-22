@@ -76,25 +76,29 @@ def carstats():
     import sensors
     global alti
     os.system('cls' if os.name == 'nt' else 'clear')
-    print("*** Car stats ***\n\n")
+    print("\n*** Car stats ***\n\n")
     print("Altimeter: ")
     print("Speed: ")
     print("Temperature: ")
-    input = raw_input("Press 'b' for going back")
+    print("\n******************************************\n")
+    input = raw_input("Press 'b' for going back: ")
     if input == "b":
         gui()
 
 def aircond():
     os.system('cls' if os.name == 'nt' else 'clear')
-    print("Air Cond")
-    input = raw_input("Press 'b' for going back")
+    print("\n*** Air Conditioning ***\n\n")
+    print("\n******************************************\n")
+    input = raw_input("Press 'b' for going back: ")
     if input == "b":
         gui()
 
 def logout():
     os.system('cls' if os.name == 'nt' else 'clear')
-    input = raw_input("Press 'b' for going back")
-    if input == "b":
+    input = raw_input("\nDo you really want to logout (y/n)? ")
+    if input == "y":
+        gui()
+    elif: input == "n":
         gui()
     return loggout
 
