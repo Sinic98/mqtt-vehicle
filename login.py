@@ -58,8 +58,10 @@ def answer_handler(loggedIn):
         loggedIn = False
     else:
         print("error with authentification")
-       
+    
+    x = True   
     time.sleep(0.5)
+    
     return loggedIn
             
             
