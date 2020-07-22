@@ -67,7 +67,7 @@ def gui():
         if input == "1":
             carstats()
         elif input == "2":
-            aircond()
+            aircond(aircon)
         elif input =="q":
             print("Logout process...")
             logout()
