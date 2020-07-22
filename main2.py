@@ -40,7 +40,7 @@ def sensorvalues():
 def gui():
     global loggout
     while True:
-        loggout = raw_input()
+        loggout = raw_input("Loffout? [q]: ")
         print("T2 lauft")
         if loggout == 'q':
             return
