@@ -11,11 +11,13 @@ loginque = False
 def setupClient():
     client = mqtt.Client("Pi8")
     client.username_pw_set("V4", "DE7")
-    client.connect("localhost", 8884)
-    print("Client connected")
     lwm = "Error: Client disconnected. Dataloss may occur!"     # last will message
     client.will_set("/SysArch/V4", lwm, 1, retain = False)
-    
+    client.connect("localhost", 8884)
+
+    print("Client connected")
+
+
     client.subscribe("/SysArch/V4/com2/car")
     print("Client subscribed")
 
@@ -75,4 +77,5 @@ def subscribe(topic, client):
 
 def stopClient(client):
     client.loop_stop()
+    client.on_disconnect()
 
