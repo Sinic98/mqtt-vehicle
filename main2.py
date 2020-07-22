@@ -31,7 +31,7 @@ loggedIn = False
 loggout = 'no'
 json_data = None
 
-def sensorvalues():
+def sensorvalues(loggedIn):
     while True:
         global json_data, accel, magnet, gyro, alti, loggout, loggedIn
         json_data = sensors.saveSensorValuesAsJson(accel, magnet, gyro, alti)  # read sensor values and save them as a JSON string
@@ -81,7 +81,7 @@ class myThread(threading.Thread):
         self.name = name
 
     def run(self):
-        sensorvalues()
+        sensorvalues(loggedIn)
 
 
 class myThread2(threading.Thread):
