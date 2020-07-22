@@ -41,7 +41,22 @@ def gui():
     global loggout
     while True:
         sleep(1)
-        loggout = raw_input("Loggout? [q]: ")
+
+        print("Welcome, ")
+        print("***  MENU  *** \n\n")
+        print("~ 1-Car Stats ~")
+        print("~ 2-Air conditioning ~")
+        print("~ [q]-Logout ~")
+
+        input = raw_input("Please enter your choice: ")
+
+        if input == "1":
+            print("All car stats are good")
+        elif input == "2":
+            print("air conditioning is on")
+        elif input == 'q':
+            loggout = 'q'
+
         #print("T2 lauft")
         if loggout == 'q':
             return
