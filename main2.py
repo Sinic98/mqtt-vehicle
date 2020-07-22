@@ -56,7 +56,7 @@ def gui():
             print("air conditioning is on")
         elif input == 'q':
             loggout = 'q'
-
+            return
         #print("T2 lauft")
         if loggout == 'q':
             return
