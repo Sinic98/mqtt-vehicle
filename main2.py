@@ -101,10 +101,10 @@ def gui():
 
         if input == "1":
             print("All car stats are good")
-            carstats()
+           # carstats()
         elif input == "2":
             print("air conditioning is on")
-            aircond(False)
+           # aircond(False)
         elif input == 'q':
             loggout = 'q'
             return
