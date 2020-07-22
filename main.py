@@ -1,12 +1,5 @@
 
-
-import json
-import time
-from gpiozero import CPUTemperature
-import random
-
 from time import sleep
-import threading
 
 from constants import *         # Includes addresses on I2C bus
 from lsm6ds33 import LSM6DS33   # Accel & Gyro (+ temp)
@@ -14,6 +7,8 @@ from lis3mdl import LIS3MDL     # Magnetometer (+ temp)
 from lps25h import LPS25H       # Barometric Pressure & Temperature
 from altimu import AltIMU
 import mysql.connector
+import random
+import threading
 import sensors
 import login
 import mqtt_client
@@ -21,9 +16,11 @@ import database
 import rfid
 import sys
 import os
-import termios
-import tty
-import gui
+import json
+import time
+from gpiozero import CPUTemperature
+
+
 global json_data, accel, magnet, gyro, alti, client, loggout, connected
 loggout = 'no'
 json_data = None
