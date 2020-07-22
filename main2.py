@@ -45,6 +45,7 @@ def sensorvalues():
 
             mqtt_client.stopClient(client)
             return
+        print("loggedIn False")
 def gui():
     global loggout
     while True:
