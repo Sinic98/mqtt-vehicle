@@ -49,14 +49,14 @@ def answer_handler(loggedIn):
         print("login successfull!")
         loggedIn = True
     elif str(mqtt_client.loginAnswer["certified"]) == "True" and str(mqtt_client.loginAnswer["login"]) == "False":
-        print("Logout successfull!")
+        print("You are logged out!\nDon't forget your phone and your passengers :)")
+        print(" ")
+        print(" ")
         loggedIn = False
     elif str(mqtt_client.loginAnswer["certified"]) == "False" and str(mqtt_client.loginAnswer["login"]) == "True":
         print("Access denied!")
     elif str(mqtt_client.loginAnswer["certified"]) == "False" and str(mqtt_client.loginAnswer["login"]) == "False":
-        print("You are logged out!\nDon't forget your phone and your passengers :)")
-        print(" ")
-        print(" ")
+        print("Logout failed!")
         loggedIn = False
     else:
         print("error with authentification")
