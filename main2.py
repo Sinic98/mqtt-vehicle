@@ -42,9 +42,7 @@ class myThread(threading.Thread):
         self.name = name
 
     def run(self):
-        global json_data#, lockMe
-        #with lockMe:
-            json_data = saveSensorValuesAsJson()
+        sensorvalues()
 
 
 class myThread2(threading.Thread):
