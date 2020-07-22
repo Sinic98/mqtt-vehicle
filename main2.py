@@ -96,7 +96,7 @@ class myThread2(threading.Thread):
 
 
 def main():
-    #loggedIn = False
+    loggedIn = False
     requestsent = False
     global client
     client = mqtt_client.setupClient()
