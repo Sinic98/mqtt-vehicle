@@ -31,10 +31,10 @@ def setupClient():
 
     def on_disconnect(client, userdata, rc):
         if rc!= 0:
-            print("Unexpected disconnection! disconnecting reason:  " + str(rc))
+            print("Unexpected disconnection! disconnecting reason:  " )
             client.connected_flag = False
         else:
-            print("Disconnected: " + str(rc))
+            print("Disconnected: " )
 
         #client.connected_flag = False
        # client.disconnect_flag = True
