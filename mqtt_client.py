@@ -36,7 +36,7 @@ def setupClient():
        # client.disconnect_flag = True
 
     def on_publish(client, userdata, rc):
-        print("Data published")
+       # print("Data published")
         pass
 
     def on_message(client, userdata, message):
