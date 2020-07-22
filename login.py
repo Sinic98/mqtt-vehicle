@@ -45,11 +45,19 @@ def answer_handler(loggedIn):
 
   #  print(mqtt_client.loginAnswer)
    # print(mqtt_client.loginAnswer["certified"])
-    if str(mqtt_client.loginAnswer["certified"]) == "True":
-        print("login succesfull!")
+    if str(mqtt_client.loginAnswer["certified"]) == "True" and mqtt_client.loginAnswer["login"] == "True"):
+        print("login successfull!")
         loggedIn = True
-    else:
+    elif str(mqtt_client.loginAnswer["certified"]) == "True" and mqtt_client.loginAnswer["login"] == "False"):
+        print("Logout successfull!")
+        loggedIn = False
+    elif str(mqtt_client.loginAnswer["certified"]) == "False" and mqtt_client.loginAnswer["login"] == "True"):
         print("Access denied!")
+    elif str(mqtt_client.loginAnswer["certified"]) == "False" and mqtt_client.loginAnswer["login"] == "False"):
+        print("Logout not successfull!")
+        loggedIn = False
+    else:
+       
     time.sleep(1)
     return loggedIn
             

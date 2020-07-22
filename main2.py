@@ -37,9 +37,9 @@ def sensorvalues():
         mqtt_client.publish("/SysArch/V4", json_data, client)  # publish JSON string
         if loggout == 'q':
             timestamp = time.time() *1000
-            loggoutmessage = "{\"timestamp\":" + str(timestamp) + ", \"login\"= false}"
+            loggoutmessage = "{\"timestamp\":" + str(timestamp) + ", \"login\"= false}"         #tokenID fehlt noch
             mqtt_client.publish("/SysArch/V4/com2/web", loggoutmessage, client)
-            print("You are logged out! Don't forgett your phone :)")
+            print("You are logged out!\nDon't forget your phone and your passengers :)")
             print(" ")
             print(" ")
             mqtt_client.stopClient(client)
