@@ -47,7 +47,7 @@ def sensorvalues():
             return
         #print("loggedIn False")
 def gui():
-    global loggout, loggedIn
+    global loggout, loggedIn, altimetervalue
     while True:
         sleep(0.1)
         os.system('cls' if os.name == 'nt' else 'clear')
@@ -64,16 +64,28 @@ def gui():
         print("   ")
 
         if input == "1":
-            print("All car stats are good")
-            print("   ")
-            print("   ")
+            carstats()
         elif input == "2":
-            print("air conditioning is on")
-            print("   ")
-            print("   ")
-        elif input == 'q':
-            loggout = 'q'
-            return
+            aircond()
+        elif input =="q":
+            logout()
+
+def carstats():
+    import sensors
+    os.system('cls' if os.name == 'nt' else 'clear')
+    print("Car stats")
+    print("Altimeter: " + altimetervalue)
+    print("Press 'b' for going back")
+
+def aircond():
+    os.system('cls' if os.name == 'nt' else 'clear')
+    print("Air Cond")
+    print("Press 'b' for going back")
+
+def logout():
+    os.system('cls' if os.name == 'nt' else 'clear')
+    loggout = 'q'
+    return loggout
 
 
 class myThread(threading.Thread):
