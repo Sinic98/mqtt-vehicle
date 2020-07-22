@@ -16,5 +16,6 @@ def offlinehandler(connected, accel, magnet, gyro, alti, client):
         mqtt_client.publish("/SysArch/V4/offline", offline_json_str, client)
         file.close()
         print("Offline data sent to: SysArch/V4/offline")
+        connected = True
         time.sleep(0.9)
         return

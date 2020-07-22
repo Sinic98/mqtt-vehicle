@@ -26,17 +26,19 @@ import os
 import termios
 import tty
 import gui
-global json_data, accel, magnet, gyro, alti, client, loggout
+global json_data, accel, magnet, gyro, alti, client, loggout, connected
 loggout = 'no'
 json_data = None
 
 
 def sensorvalues():
     while True:
-        global json_data, accel, magnet, gyro, alti, loggout
+        global json_data, accel, magnet, gyro, alti, loggout, connected
         json_data = sensors.saveSensorValuesAsJson(accel, magnet, gyro, alti)  # read sensor values and save them as a JSON string
         time.sleep(2)
         mqtt_client.publish("/SysArch/V4", json_data, client)  # publish JSON string
+        if connected == False:
+            database.offlinehandler(connected, accel, magnet, gyro, alti, client)
         if loggout == 'q':
             timestamp = time.time() *1000
             timestampstr = str(timestamp)
@@ -117,6 +119,7 @@ def main():
     client = mqtt_client.setupClient()
     print("Client Setup finished")
     sleep(0.1)
+    global connected
     connected = True
 
     while requestsent == False:  # runs until Request sent
