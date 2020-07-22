@@ -58,7 +58,7 @@ def gui():
         print("~ 1-Car Stats ~")
         print("~ 2-Air conditioning ~")
         print("~ [q]-Logout ~")
-
+        print("\n******************************************\n")
         input = raw_input("Please enter your choice: ")
         print("   ")
         print("   ")
@@ -88,16 +88,33 @@ def carstats():
 def aircond():
     os.system('cls' if os.name == 'nt' else 'clear')
     print("\n*** Air Conditioning ***\n\n")
+    print("Temperature (inside): ")
+    print("Temperature (outside): ")
+    if aircon == True:
+        print("AirCon ON")
+        print("Press 0 for OFF")
+    elif aircon == False:
+        print("AirCon OFF")
+        print("Press 1 for ON")
     print("\n******************************************\n")
     input = raw_input("Press 'b' for going back: ")
     if input == "b":
         gui()
+    elif input == "0":
+        aircon == False
+        aircond()
+    elif input == "1":
+        aircon == True
+        aircond()
+
 
 def logout():
     os.system('cls' if os.name == 'nt' else 'clear')
     input = raw_input("\nDo you really want to logout (y/n)? ")
     if input == "y":
         gui()
+        t1.stop()
+        t2.stop()
     elif input == "n":
         gui()
     return loggout
