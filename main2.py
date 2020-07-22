@@ -8,7 +8,7 @@ import random
 from time import sleep
 import threading
 #from _thread import start_new_thread
-import  queue
+#import  queue
 
 from constants import *         # Includes addresses on I2C bus
 from lsm6ds33 import LSM6DS33   # Accel & Gyro (+ temp)
