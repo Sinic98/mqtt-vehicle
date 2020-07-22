@@ -70,7 +70,7 @@ def gui():
         elif input =="q":
             logout()
 
-def carstats(alti):
+def carstats():
     import sensors
     global alti
     os.system('cls' if os.name == 'nt' else 'clear')
