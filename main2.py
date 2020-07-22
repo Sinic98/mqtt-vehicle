@@ -100,7 +100,18 @@ def gui():
         print("   ")
 
         if input == "1":
-            print("All car stats are good")
+            input = 'hi'
+            while input == 'hi':
+                print("All car stats are good")
+                os.system('cls' if os.name == 'nt' else 'clear')
+                print("\n*** Car stats ***\n\n")
+                print("Altimeter: ")
+                print("Speed: ")
+                print("Temperature: ")
+                print("\n******************************************\n")
+                input = raw_input("Press 'b' for going back: ")
+
+
            # carstats()
         elif input == "2":
             print("air conditioning is on")
