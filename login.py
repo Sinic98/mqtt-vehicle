@@ -46,6 +46,7 @@ def answer_handler(loggedIn):
   #  print(mqtt_client.loginAnswer)
    # print(mqtt_client.loginAnswer["certified"])
     if str(mqtt_client.loginAnswer["certified"]) == "True":
+        print("login succesfull!")
         loggedIn = True
     else:
         print("Access denied!")

@@ -46,7 +46,7 @@ def setupClient():
         global loginAnswer
         loginAnswer = json.loads(buffer)
        # print("In on_client")
-        print(loginAnswer["certified"])
+       # print(loginAnswer["certified"])
         global loginque
         loginque = True
         
