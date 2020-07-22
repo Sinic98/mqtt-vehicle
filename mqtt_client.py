@@ -36,27 +36,18 @@ def setupClient():
         else:
             print("Disconnected: " )
 
-        #client.connected_flag = False
-       # client.disconnect_flag = True
-
     def on_publish(client, userdata, rc):
-       # print("Data published")
         pass
 
     def on_message(client, userdata, message):
-       # print "Message received: "  + message.payload
-        #global loginAnswer
+
         buffer=message.payload
         global loginAnswer
         loginAnswer = json.loads(buffer)
-       # print("In on_client")
-       # print(loginAnswer["certified"])
+
         global loginque
         loginque = True
-        
 
-
-            
 
     client.on_connect = on_connect
     client.on_publish = on_publish
@@ -64,7 +55,6 @@ def setupClient():
     client.on_disconnect = on_disconnect
 
 
-    #client.reconnect_delay_set(min_delay = 1, max_delay = 10)
     client.loop_start()
     return client
 
