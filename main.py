@@ -117,24 +117,19 @@ def main():
     sleep(0.1)
     connected = True
 
-    while requestsent == False:  # runs until Request sent
+    while requestsent == False:  # runs until RFID Chip is read
         requestsent = login.rfidRequest(client, requestsent)
 
     while loggedIn == False:  # runs until Request is certified
         loggedIn = login.answer_handler(loggedIn)
 
-
     accel, magnet, gyro, alti = sensors.enableSensors()  # enables sensors
-
-    lockMe = threading.Lock()
 
     t1 = myThread(1, "Sensordata")
     t2 = myThread2(2, "UI")
 
     t1.start() #start thread for reading and publishing sensor values
     t2.start() #start thread for the ui
-
-
 
 if __name__ == "__main__":
     main()
