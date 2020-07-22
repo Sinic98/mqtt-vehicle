@@ -42,7 +42,7 @@ def gui():
     while True:
         sleep(1)
 
-        print("Welcome, ")
+
         print("***  MENU  *** \n\n")
         print("~ 1-Car Stats ~")
         print("~ 2-Air conditioning ~")
@@ -52,8 +52,12 @@ def gui():
 
         if input == "1":
             print("All car stats are good")
+            print("   ")
+            print("   ")
         elif input == "2":
             print("air conditioning is on")
+            print("   ")
+            print("   ")
         elif input == 'q':
             loggout = 'q'
             return
