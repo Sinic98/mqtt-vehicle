@@ -63,9 +63,7 @@ def gui():
         elif input == 'q':
             loggout = 'q'
             return
-        #print("T2 lauft")
-        if loggout == 'q':
-            return
+
 
 class myThread(threading.Thread):
     def __init__(self, id, name):
@@ -112,11 +110,6 @@ def main():
 
     t1.start()
     t2.start()
-
-
-
-        
-
 
 
 
