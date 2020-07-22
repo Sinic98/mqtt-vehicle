@@ -49,6 +49,8 @@ def gui():
         print("~ [q]-Logout ~")
 
         input = raw_input("Please enter your choice: ")
+        print("   ")
+        print("   ")
 
         if input == "1":
             print("All car stats are good")
