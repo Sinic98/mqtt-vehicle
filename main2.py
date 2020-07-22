@@ -37,7 +37,7 @@ def sensorvalues():
         json_data = sensors.saveSensorValuesAsJson(accel, magnet, gyro, alti)  # read sensor values and save them as a JSON string
         time.sleep(2)
         mqtt_client.publish("/SysArch/V4", json_data, client)  # publish JSON string
-        if connected == True:
+        if not connected == False:
             database.offlinehandler(connected, accel, magnet, gyro, alti, client)
         if loggout == 'q':
             timestamp = time.time() *1000
