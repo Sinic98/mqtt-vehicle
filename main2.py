@@ -86,6 +86,7 @@ def carstats():
         gui()
 
 def aircond():
+    aircon == False
     os.system('cls' if os.name == 'nt' else 'clear')
     print("\n*** Air Conditioning ***\n\n")
     print("Temperature (inside): ")
