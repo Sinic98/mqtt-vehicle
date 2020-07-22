@@ -37,7 +37,7 @@ def sensorvalues():
         mqtt_client.publish("/SysArch/V4", json_data, client)  # publish JSON string
         if loggout == 'q':
             timestamp = time.time() *1000
-            loggoutmessage = "{ \"timestamp\":" + timestamp + "\"login\"= flase}"
+            loggoutmessage = "{ \"timestamp\":" + str(timestamp) + "\"login\"= flase}"
             mqtt_client.publish("/SysArch/V4/com2/web", loggoutmessage, client)
             return
 def gui():
