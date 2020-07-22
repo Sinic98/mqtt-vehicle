@@ -77,5 +77,5 @@ def subscribe(topic, client):
 
 def stopClient(client):
     client.loop_stop()
-    client.on_disconnect()
+    client.on_disconnect(client, userdata, rc)
 
