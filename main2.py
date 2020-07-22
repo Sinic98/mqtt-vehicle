@@ -71,7 +71,7 @@ def gui():
             print("air conditioning is on")
             print("   ")
             print("   ")
-        elif input == 'q':
+        elif input == 'q' and loggedIn:
             loggout = 'q'
             return
 
@@ -112,6 +112,7 @@ def main():
     while loggedIn == False:  # runs until Request is certified
         loggedIn = login.answer_handler(loggedIn)
     global accel, magnet, gyro, alti
+
     accel, magnet, gyro, alti = sensors.enableSensors()  # enables sensors
 
     lockMe = threading.Lock()
