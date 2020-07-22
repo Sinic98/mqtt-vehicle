@@ -31,46 +31,11 @@ loggout = 'no'
 json_data = None
 
 
-def carstats():
-    import sensors
-    global alti
-    os.system('cls' if os.name == 'nt' else 'clear')
-    print("\n*** Car stats ***\n\n")
-    print("Altimeter: ")
-    print("Speed: ")
-    print("Temperature: ")
-    print("\n******************************************\n")
-    input = raw_input("Press 'b' for going back: ")
-    if input == "b":
-        gui()
-
-def aircond(aircon):
-
-    os.system('cls' if os.name == 'nt' else 'clear')
-    print("\n*** Air Conditioning ***\n\n")
-    print("Temperature (inside): ")
-    print("Temperature (outside): ")
-    if aircon == True:
-        print("AirCon ON")
-        print("Press 0 for OFF")
-    elif aircon == False:
-        print("AirCon OFF")
-        print("Press 1 for ON")
-    print("\n******************************************\n")
-    input = raw_input("Press 'b' for going back: ")
-    if input == "b":
-        gui()
-    elif input == "0":
-        aircon == False
-        aircond(aircon)
-    elif input == "1":
-        aircon == True
-        aircond(aircon)
-
 def sensorvalues():
     while True:
         global json_data, accel, magnet, gyro, alti, loggout
         json_data = sensors.saveSensorValuesAsJson(accel, magnet, gyro, alti)  # read sensor values and save them as a JSON string
+        time.sleep(2)
         mqtt_client.publish("/SysArch/V4", json_data, client)  # publish JSON string
         if loggout == 'q':
             timestamp = time.time() *1000
@@ -111,7 +76,7 @@ def gui():
                 input = raw_input("Press 'b' for going back: ")
 
 
-           # carstats()
+
         elif input == "2":
             input = 't'
             while input == 't':
@@ -119,7 +84,7 @@ def gui():
                 print("\nAirconditioning\n\n")
                 print("\n******************************************\n")
                 input = raw_input("Press 'b' for going back: ")
-           # aircond(False)
+
         elif input == 'q':
             loggout = 'q'
             return
