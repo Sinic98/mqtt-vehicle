@@ -26,7 +26,7 @@ import os
 import termios
 import tty
 import gui
-global json_data, accel, magnet, gyro, alti, client
+global json_data, accel, magnet, gyro, alti, client, loggout
 json_data = None
 
 def sensorvalues():
@@ -34,6 +34,8 @@ def sensorvalues():
         global json_data, accel, magnet, gyro, alti
         json_data = sensors.saveSensorValuesAsJson(accel, magnet, gyro, alti)  # read sensor values and save them as a JSON string
         mqtt_client.publish("/SysArch/V4", json_data, client)  # publish JSON string
+        if loggout:
+            return
 
 class myThread(threading.Thread):
     def __init__(self, id, name):
@@ -53,7 +55,10 @@ class myThread2(threading.Thread):
 
     def run(self):
         global json_data
-        print("T2")
+        while True:
+            print("T2 lauft")
+            if loggout:
+                return
 
 def main():
     loggedIn = False
