@@ -26,7 +26,7 @@ import os
 import termios
 import tty
 import gui
-global json_data, accel, magnet, gyro, alti, client, loggout, loggedIn, altimetervalue
+global json_data, accel, magnet, gyro, alti, client, loggout, loggedIn
 loggedIn = False
 loggout = 'no'
 json_data = None
@@ -47,7 +47,7 @@ def sensorvalues():
             return
         #print("loggedIn False")
 def gui():
-    global loggout, loggedIn, altimetervalue
+    global loggout, loggedIn, alti
     while True:
         sleep(0.1)
         os.system('cls' if os.name == 'nt' else 'clear')
@@ -74,7 +74,7 @@ def carstats():
     import sensors
     os.system('cls' if os.name == 'nt' else 'clear')
     print("*** Car stats ***\n\n")
-    print("Altimeter: " + altimetervalue)
+    print("Altimeter: " + alti)
     print("Press 'b' for going back")
 
 def aircond():
