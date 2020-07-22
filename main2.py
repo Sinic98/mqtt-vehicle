@@ -43,12 +43,12 @@ def sensorvalues():
             login.logout(client, loggedIn)
 
             #loggoutobj = login.LoginData(timestamp = time.time()*1000, tokenID = "ID", login = False)
-            #timestamp = time.time() *1000
-           # timestampstr = str(timestamp)
-            #loggoutmessage = "{\"timestamp\": " + timestampstr + ", \"login\": false}"
+            timestamp = time.time() *1000
+            timestampstr = str(timestamp)
+            loggoutmessage = "{\"timestamp\": " + timestampstr + ", \"login\": false, \"tokenID: \"  \"}"
             #loggoutmessage = json.loads(loggoutobj.__dict__)
-            #mqtt_client.publish("/SysArch/V4/com2/web", loggoutmessage, client)
-            print("You are logged out! Don't forgett your phone :)")
+            mqtt_client.publish("/SysArch/V4/com2/web", loggoutmessage, client)
+            print("You are logged out! Don't forget your phone :)")
             print(" ")
             print(" ")
             mqtt_client.stopClient(client)
