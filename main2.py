@@ -68,24 +68,34 @@ def gui():
         elif input == "2":
             aircond()
         elif input =="q":
+            print("Logout process...")
             logout()
+
 
 def carstats():
     import sensors
     global alti
     os.system('cls' if os.name == 'nt' else 'clear')
     print("*** Car stats ***\n\n")
-    print("Altimeter: " + str(alti))
-    print("Press 'b' for going back")
+    print("Altimeter: ")
+    print("Speed: ")
+    print("Temperature: ")
+    input = raw_input("Press 'b' for going back")
+    if input == "b":
+        gui()
 
 def aircond():
     os.system('cls' if os.name == 'nt' else 'clear')
     print("Air Cond")
-    print("Press 'b' for going back")
+    input = raw_input("Press 'b' for going back")
+    if input == "b":
+        gui()
 
 def logout():
     os.system('cls' if os.name == 'nt' else 'clear')
-    loggout = 'q'
+    input = raw_input("Press 'b' for going back")
+    if input == "b":
+        gui()
     return loggout
 
 
