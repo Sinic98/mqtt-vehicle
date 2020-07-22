@@ -3,6 +3,7 @@ import json
 import time
 from gpiozero import CPUTemperature
 import random
+import math
 
 from time import sleep
 
