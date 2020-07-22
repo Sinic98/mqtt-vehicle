@@ -70,11 +70,12 @@ def gui():
         elif input =="q":
             logout()
 
-def carstats():
+def carstats(alti):
     import sensors
+    global alti
     os.system('cls' if os.name == 'nt' else 'clear')
     print("*** Car stats ***\n\n")
-    print("Altimeter: " + alti)
+    print("Altimeter: " + str(alti))
     print("Press 'b' for going back")
 
 def aircond():
