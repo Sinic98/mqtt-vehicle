@@ -49,7 +49,8 @@ def sensorvalues():
         #print("loggedIn False")
 def gui():
     global loggout, loggedIn, alti
-    while True:
+    a = True
+    while a:
         sleep(0.1)
         os.system('cls' if os.name == 'nt' else 'clear')
         sleep(0.5)
@@ -70,8 +71,9 @@ def gui():
             aircond(aircon)
         elif input =="q":
             print("Logout process...")
-            logout()
-        return
+
+            a = False
+
 
 
 def carstats():
