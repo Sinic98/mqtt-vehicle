@@ -40,7 +40,7 @@ def sensorvalues():
         if connected == False:
             database.offlinehandler(connected, accel, magnet, gyro, alti, client)
         if loggout == 'q':
-            loggoutobj = LoginData(timestamp = time.time()*1000, tokenID = "ID", login = False)
+            loggoutobj = login.LoginData(timestamp = time.time()*1000, tokenID = "ID", login = False)
             #timestamp = time.time() *1000
            # timestampstr = str(timestamp)
             #loggoutmessage = "{\"timestamp\": " + timestampstr + ", \"login\": false}"
