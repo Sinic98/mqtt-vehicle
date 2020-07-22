@@ -40,12 +40,12 @@ def setupClient():
         pass
 
     def on_message(client, userdata, message):
-        print "Message received: "  + message.payload
+       # print "Message received: "  + message.payload
         #global loginAnswer
         buffer=message.payload
         global loginAnswer
         loginAnswer = json.loads(buffer)
-        print("In on_client")
+       # print("In on_client")
         print(loginAnswer["certified"])
         global loginque
         loginque = True
