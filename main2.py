@@ -7,8 +7,6 @@ import random
 
 from time import sleep
 import threading
-#from _thread import start_new_thread
-#import  queue
 
 from constants import *         # Includes addresses on I2C bus
 from lsm6ds33 import LSM6DS33   # Accel & Gyro (+ temp)
@@ -30,15 +28,17 @@ global json_data, accel, magnet, gyro, alti, client, loggout, connected
 loggout = 'no'
 json_data = None
 
-
+# function which runs in thread 1
 def sensorvalues():
     while True:
         global json_data, accel, magnet, gyro, alti, loggout, connected, loggedIn
         json_data = sensors.saveSensorValuesAsJson(accel, magnet, gyro, alti)  # read sensor values and save them as a JSON string
         time.sleep(1)
         mqtt_client.publish("/SysArch/V4", json_data, client)  # publish JSON string
+# if not connected to the client, start the database.offlinehandler ** we dont change the variable! We didnt have time to implement that
         if connected == False:
             database.offlinehandler(connected, accel, magnet, gyro, alti, client)
+#if loggout is set in the gui, loggout process starts
         if loggout == 'q':
             timestamp = time.time() *1000
             timestampstr = str(timestamp)
@@ -56,7 +56,6 @@ def gui():
         os.system('cls' if os.name == 'nt' else 'clear')
         sleep(0.5)
 
-
         print("***  MENU  *** \n\n")
         print("~ 1-Car Stats ~")
         print("~ 2-Air conditioning ~")
@@ -65,7 +64,8 @@ def gui():
         input = raw_input("Please enter your choice: ")
         print("   ")
         print("   ")
-
+# UI Methods
+# car stats
         if input == "1":
             input = 't'
             while input == 't':
@@ -76,9 +76,7 @@ def gui():
                 print("Temperature: ")
                 print("\n******************************************\n")
                 input = raw_input("Press 'b' for going back: ")
-
-
-
+# Airconditioning
         elif input == "2":
             input = 't'
             while input == 't':
@@ -86,12 +84,12 @@ def gui():
                 print("\nAirconditioning\n\n")
                 print("\n******************************************\n")
                 input = raw_input("Press 'b' for going back: ")
-
+# loggout UI
         elif input == 'q':
             loggout = 'q'
             return
 
-
+# thread 1
 class myThread(threading.Thread):
     def __init__(self, id, name):
         threading.Thread.__init__(self)
@@ -101,7 +99,7 @@ class myThread(threading.Thread):
     def run(self):
         sensorvalues()
 
-
+# thread 2
 class myThread2(threading.Thread):
     def __init__(self, id, name):
         threading.Thread.__init__(self)
@@ -113,32 +111,31 @@ class myThread2(threading.Thread):
 
 
 def main():
-    global loggedIn
+    global loggedIn, accel, magnet, gyro, alti, client, connected
     loggedIn = False
     requestsent = False
-    global client
+
     client = mqtt_client.setupClient()
     print("Client Setup finished")
     sleep(0.1)
-    global connected
     connected = True
 
     while requestsent == False:  # runs until Request sent
-        # loggedIn = login.loginRequest(client, loggedIn)
         requestsent = login.rfidRequest(client, requestsent)
 
     while loggedIn == False:  # runs until Request is certified
         loggedIn = login.answer_handler(loggedIn)
-    global accel, magnet, gyro, alti
+
+
     accel, magnet, gyro, alti = sensors.enableSensors()  # enables sensors
 
     lockMe = threading.Lock()
 
-    t1 = myThread(1, "Sensordaten")
-    t2 = myThread2(2, "Display")
+    t1 = myThread(1, "Sensordata")
+    t2 = myThread2(2, "UI")
 
-    t1.start()
-    t2.start()
+    t1.start() #start thread for reading and publishing sensor values
+    t2.start() #start thread for the ui
 
 
 

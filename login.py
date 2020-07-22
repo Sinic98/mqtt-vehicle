@@ -43,8 +43,6 @@ def answer_handler(loggedIn):
             print("Warte....")
             x = False
 
-  #  print(mqtt_client.loginAnswer)
-   # print(mqtt_client.loginAnswer["certified"])
     if str(mqtt_client.loginAnswer["certified"]) == "True":
         print("login succesfull!")
         loggedIn = True
@@ -54,7 +52,7 @@ def answer_handler(loggedIn):
     return loggedIn
             
             
-
+# implemented in main
 #def logout(client, loggedIn):
  #   login = LoginData(timestamp=time.time()*1000, tokenID=" ", login = False)
    # login_json = json.dumps(login.__dict__)
