@@ -114,7 +114,10 @@ def gui():
 
            # carstats()
         elif input == "2":
+            input = 'hi'
+            while input == 'hi':
             print("air conditioning is on")
+            input = raw_input("Press 'b' for going back: ")
            # aircond(False)
         elif input == 'q':
             loggout = 'q'
