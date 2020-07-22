@@ -47,7 +47,7 @@ def sensorvalues():
             return
         #print("loggedIn False")
 def gui():
-    global loggout
+    global loggout, loggedIn
     while True:
         sleep(0.1)
         os.system('cls' if os.name == 'nt' else 'clear')
