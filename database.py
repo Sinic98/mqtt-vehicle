@@ -13,9 +13,9 @@ def offlinehandler(connected, accel, magnet, gyro, alti, client):
         file.close()
         offline_json = open("offline.txt").readlines()
         offline_json_str = str(offline_json)
-        mqtt_client.publish("/SysArch/V4/offline", offline_json_str, client)
+        mqtt_client.publish("/SysArch/V4/offlinedata", offline_json_str, client)
         file.close()
-        print("Offline data sent to: SysArch/V4/offline")
+        print("Offline data sent to: SysArch/V4/offlinedata")
         connected = True
         time.sleep(0.9)
         return

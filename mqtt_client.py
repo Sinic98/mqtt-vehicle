@@ -22,6 +22,7 @@ def setupClient():
     def on_connect(client, userdata, flags, rc):
         if rc == 0:
             print("CONNACK received with code %d." % (rc))
+            client.connected_flag = True
         else:
             print("Connection refused with code %d." %(rc))
 
