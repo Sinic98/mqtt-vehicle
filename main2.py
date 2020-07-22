@@ -31,12 +31,13 @@ loggedIn = False
 loggout = 'no'
 json_data = None
 
-def sensorvalues(loggedIn):
+def sensorvalues():
     while True:
         global json_data, accel, magnet, gyro, alti, loggout, loggedIn
         json_data = sensors.saveSensorValuesAsJson(accel, magnet, gyro, alti)  # read sensor values and save them as a JSON string
         mqtt_client.publish("/SysArch/V4", json_data, client)  # publish JSON string
         if loggout == 'q' and loggedIn:
+            print("pressed q")
             timestamp = time.time() *1000
             loggoutmessage = "{\"timestamp\":" + str(timestamp) + ", \"login\"= false}"         #tokenID fehlt noch
             mqtt_client.publish("/SysArch/V4/com2/web", loggoutmessage, client)
@@ -81,7 +82,7 @@ class myThread(threading.Thread):
         self.name = name
 
     def run(self):
-        sensorvalues(loggedIn)
+        sensorvalues()
 
 
 class myThread2(threading.Thread):
