@@ -104,10 +104,10 @@ def aircond(aircon):
         gui()
     elif input == "0":
         aircon == False
-        aircond()
+        aircond(aircon)
     elif input == "1":
         aircon == True
-        aircond()
+        aircond(aircon)
 
 
 def logout():
