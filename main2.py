@@ -35,7 +35,7 @@ def sensorvalues():
         global json_data, accel, magnet, gyro, alti, loggout
         json_data = sensors.saveSensorValuesAsJson(accel, magnet, gyro, alti)  # read sensor values and save them as a JSON string
         mqtt_client.publish("/SysArch/V4", json_data, client)  # publish JSON string
-        if loggout:
+        if loggout == 'q':
             return
 def gui():
     global loggout
