@@ -54,8 +54,8 @@ def main():
         database.offlinehandler(client.connected_flag, accel, magnet, gyro, alti, client)
     time.sleep(0.1)
 
-    os.system('cls' if os.name == 'nt' else 'clear')
-    gui.idle()
+  #  os.system('cls' if os.name == 'nt' else 'clear')
+   # gui.idle()
 
     while loggedIn == False:
         key = inkey()
