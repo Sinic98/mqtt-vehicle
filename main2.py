@@ -27,7 +27,7 @@ import termios
 import tty
 import gui
 global json_data, accel, magnet, gyro, alti, client, loggout, loggedIn
-#loggedIn = False
+loggedIn = False
 loggout = 'no'
 json_data = None
 
@@ -96,7 +96,7 @@ class myThread2(threading.Thread):
 
 
 def main():
-    loggedIn = False
+    #loggedIn = False
     requestsent = False
     global client
     client = mqtt_client.setupClient()
