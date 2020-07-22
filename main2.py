@@ -71,6 +71,7 @@ def gui():
         elif input =="q":
             print("Logout process...")
             logout()
+            return
 
 
 def carstats():
@@ -114,10 +115,7 @@ def logout():
     os.system('cls' if os.name == 'nt' else 'clear')
     input = raw_input("\nDo you really want to logout (y/n)? ")
     if input == "y":
-        gui()
-        t1.stop()
-        t2.stop()
-        exit()
+        return
     elif input == "n":
         gui()
     return loggout
