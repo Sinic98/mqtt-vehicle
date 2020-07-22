@@ -56,6 +56,8 @@ def answer_handler(loggedIn):
     elif str(mqtt_client.loginAnswer["certified"]) == "False" and str(mqtt_client.loginAnswer["login"] == "False"):
         print("Logout not successfull!")
         loggedIn = False
+    else:
+        print("error with authentification")
        
     time.sleep(0.5)
     return loggedIn
