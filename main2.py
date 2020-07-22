@@ -47,7 +47,9 @@ def sensorvalues():
 def gui():
     global loggout
     while True:
-        sleep(1)
+        sleep(0.5)
+        os.system('cls' if os.name == 'nt' else 'clear')
+        sleep(0.5)
 
 
         print("***  MENU  *** \n\n")
