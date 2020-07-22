@@ -71,7 +71,7 @@ def gui():
         elif input =="q":
             print("Logout process...")
             logout()
-            return
+        return
 
 
 def carstats():
