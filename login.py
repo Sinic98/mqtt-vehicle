@@ -65,6 +65,7 @@ def answer_handler(loggedIn):
     
     x = True
     mqtt_client.loginque = False
+    mqtt_client.loginAnswer = None
     time.sleep(0.5)
     
     return loggedIn
