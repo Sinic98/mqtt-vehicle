@@ -40,6 +40,7 @@ def sensorvalues():
             loggoutmessage = "{\"timestamp\":" + str(timestamp) + ", \"login\"= false}"
             mqtt_client.publish("/SysArch/V4/com2/web", loggoutmessage, client)
             print("You are logged out! Don't forgett your phone :)")
+            mqtt_client.stopClient(client)
             return
 def gui():
     global loggout

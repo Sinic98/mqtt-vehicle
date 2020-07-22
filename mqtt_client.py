@@ -73,3 +73,4 @@ def subscribe(topic, client):
 
 def stopClient(client):
     client.loop_stop()
+    
