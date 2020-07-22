@@ -33,7 +33,7 @@ json_data = None
 
 def sensorvalues():
     while True:
-        global json_data, accel, magnet, gyro, alti, loggout, connected
+        global json_data, accel, magnet, gyro, alti, loggout, connected, loggedIn
         json_data = sensors.saveSensorValuesAsJson(accel, magnet, gyro, alti)  # read sensor values and save them as a JSON string
         time.sleep(1)
         mqtt_client.publish("/SysArch/V4", json_data, client)  # publish JSON string
@@ -117,6 +117,7 @@ class myThread2(threading.Thread):
 
 
 def main():
+    global loggedIn
     loggedIn = False
     requestsent = False
     global client
