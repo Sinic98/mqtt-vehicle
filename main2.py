@@ -7,7 +7,7 @@ import random
 
 from time import sleep
 import threading
-from _thread import start_new_thread
+#from _thread import start_new_thread
 import  queue
 
 from constants import *         # Includes addresses on I2C bus
