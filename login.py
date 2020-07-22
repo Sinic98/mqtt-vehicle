@@ -60,7 +60,7 @@ def answer_handler(loggedIn):
         print("error with authentification")
     
     x = True
-    mqtt_client.loginque = True
+    mqtt_client.loginque = False
     time.sleep(0.5)
     
     return loggedIn
