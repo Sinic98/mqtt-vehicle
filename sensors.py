@@ -135,6 +135,7 @@ def saveSensorValuesAsJson(accel, magnet, gyro, alti):
         speed1 = speed0 + 2
         speedvalue = random.randint(speed0, speed1)
 
+    global altimetervalue
     altimetervalue = alti.getAltitude()
 
     gyrovalue = gyro.getGryoscopeMDPS()
