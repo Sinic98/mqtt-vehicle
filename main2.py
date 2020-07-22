@@ -98,7 +98,7 @@ def logout():
     input = raw_input("\nDo you really want to logout (y/n)? ")
     if input == "y":
         gui()
-    elif: input == "n":
+    elif input == "n":
         gui()
     return loggout
 
