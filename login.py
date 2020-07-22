@@ -40,7 +40,7 @@ def answer_handler(loggedIn):
     x = True
     while mqtt_client.loginque == False:
         if x:
-            print("Warte....")
+            print("Wait...")
             x = False
 
   #  print(mqtt_client.loginAnswer)
@@ -54,7 +54,9 @@ def answer_handler(loggedIn):
     elif str(mqtt_client.loginAnswer["certified"]) == "False" and str(mqtt_client.loginAnswer["login"]) == "True":
         print("Access denied!")
     elif str(mqtt_client.loginAnswer["certified"]) == "False" and str(mqtt_client.loginAnswer["login"]) == "False":
-        print("Logout not successfull!")
+        print("You are logged out!\nDon't forget your phone and your passengers :)")
+        print(" ")
+        print(" ")
         loggedIn = False
     else:
         print("error with authentification")

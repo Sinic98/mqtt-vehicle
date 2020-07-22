@@ -40,12 +40,8 @@ def sensorvalues():
             timestamp = time.time() *1000
             loggoutmessage = "{\"timestamp\":" + str(timestamp) + ", \"login\"= false}"         #tokenID fehlt noch
             mqtt_client.publish("/SysArch/V4/com2/web", loggoutmessage, client)
-            print("Wait for response...")
             login.answer_handler(loggedIn)
-            print("Answerhandler done")
-            #print("You are logged out!\nDon't forget your phone and your passengers :)")
-            #print(" ")
-            #print(" ")
+
             mqtt_client.stopClient(client)
             return
 def gui():
