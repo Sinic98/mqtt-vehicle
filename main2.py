@@ -40,13 +40,9 @@ def sensorvalues():
         if connected == False:
             database.offlinehandler(connected, accel, magnet, gyro, alti, client)
         if loggout == 'q':
-            login.logout(client, loggedIn)
-
-            #loggoutobj = login.LoginData(timestamp = time.time()*1000, tokenID = "ID", login = False)
             timestamp = time.time() *1000
             timestampstr = str(timestamp)
             loggoutmessage = "{\"timestamp\": " + timestampstr + ", \"login\": false, \"tokenID\": \"  \"}"
-            #loggoutmessage = json.loads(loggoutobj.__dict__)
             mqtt_client.publish("/SysArch/V4/com2/web", loggoutmessage, client)
             print("You are logged out! Don't forget your phone :)")
             print(" ")

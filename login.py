@@ -55,13 +55,13 @@ def answer_handler(loggedIn):
             
             
 
-def logout(client, loggedIn):
-    login = LoginData(timestamp=time.time()*1000, tokenID=" ", login = False)
-    login_json = json.dumps(login.__dict__)
-    mqtt_client.publish("SysArch/V4/com2/web", login_json, client)
-    print("log out succesfull")
-    loggedIn = False
-    return loggedIn
+#def logout(client, loggedIn):
+ #   login = LoginData(timestamp=time.time()*1000, tokenID=" ", login = False)
+   # login_json = json.dumps(login.__dict__)
+  #  mqtt_client.publish("SysArch/V4/com2/web", login_json, client)
+   # print("log out succesfull")
+    #loggedIn = False
+    #return loggedIn
 
 
 
