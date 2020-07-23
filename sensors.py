@@ -3,6 +3,7 @@ import json
 import time
 from gpiozero import CPUTemperature
 import random
+import math
 
 from time import sleep
 
@@ -13,7 +14,8 @@ from lps25h import LPS25H       # Barometric Pressure & Temperature
 from altimu import AltIMU
 
 
-
+global x
+x = 0.1
 # enable sensors
 def enableSensors():
     # accel
@@ -106,34 +108,47 @@ def saveSensorValuesAsJson(accel, magnet, gyro, alti):
     # save sensor values in variables
 
     # simulate lidar value
-    lidarvalue = random.randint(200, 220)
-
+    #lidarvalue = random.randint(200, 220)
+    global x
+    a = math.sin(x-0.2)+2
+    x = x + 0.1
+    lidarvalue = a
     # simulate humidity
-    humidityvalue = random.randint(20, 60)
+
+    #humidityvalue = random.randint(20, 60)
+    x = x + 0.1
+    b = math.sin(x-1) +2
+    humidityvalue = b
 
     # simulate steering angle value
-    firstrun = 1
-    if firstrun == 1:
-        oldsteeringAnglevalue = 0
-        steeringAnglevalue = 0
-        firstrun = 0
-    else:
-        steeringAnglevalue = random.uniform(oldsteeringAnglevalue + 0.3, oldsteeringAnglevalue - 0.3)
-        oldsteeringAngle = steeringAnglevalue
+    #firstrun = 1
+    #if firstrun == 1:
+     #   oldsteeringAnglevalue = 0
+     #   steeringAnglevalue = 0
+     #   firstrun = 0
+   # else:
+    #    steeringAnglevalue = random.uniform(oldsteeringAnglevalue + 0.3, oldsteeringAnglevalue - 0.3)
+    #    oldsteeringAngle = steeringAnglevalue
+
+    x = x + 0.1
+    c = math.sin(x+0.8)
+    steeringAnglevalue = c
 
     cputemperaturevalue = CPUTemperature()
 
     # simulate speed value
-    firstrun2 = 1
-    if firstrun2 == 1:
-        speed0 = 0
-        firstrun2 = 0
-        speed1 = speed0 + 3
-        speedvalue = random.randint(speed0, speed1)
-    else:
-        speed0 = 3
-        speed1 = speed0 + 2
-        speedvalue = random.randint(speed0, speed1)
+    #firstrun2 = 1
+    #if firstrun2 == 1:
+    #    speed0 = 0
+    #    firstrun2 = 0
+     #   speed1 = speed0 + 3
+    #    speedvalue = random.randint(speed0, speed1)
+   # else:
+    #    speed0 = 3
+    #    speed1 = speed0 + 2
+     #   speedvalue = random.randint(speed0, speed1)
+    d = 20 * math.sin(x-3) + 20
+    speedvalue = d
 
     altimetervalue = alti.getAltitude()
 

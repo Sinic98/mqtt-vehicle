@@ -20,17 +20,13 @@ class LoginConfirm():
 rightLogin = LoginConfirm(True)       
 
 
-def rfidRequest(client, requestsent):
-    
+def rfidRequest(client, requestsent):  
     uid = ""
     while uid == "":
-        (status, uid) = rfid.RFIDRead()
-    
-   
-    login = LoginData(timestamp=time.time()*1000, tokenID = uid, login = True)
-    login_json = json.dumps(login.__dict__)
-    print(login_json)
+        (status, uid) = rfid.RFIDRead()  
         
+    login = LoginData(timestamp=time.time()*1000, tokenID = uid, login = True)
+    login_json = json.dumps(login.__dict__)   
     mqtt_client.publish("/SysArch/V4/com2/web", login_json, client)
     print("Login Request sent")
     requestsent = True
@@ -40,12 +36,11 @@ def answer_handler(loggedIn):
     x = True
     while mqtt_client.loginque == False:
         if x:
-            print("Warte....")
+            print("Wait....")
             x = False
 
-    print(mqtt_client.loginAnswer)
-    print(mqtt_client.loginAnswer["certified"])
     if str(mqtt_client.loginAnswer["certified"]) == "True":
+        print("login succesfull!")
         loggedIn = True
     else:
         print("Access denied!")
@@ -53,14 +48,14 @@ def answer_handler(loggedIn):
     return loggedIn
             
             
-
-def logout(client, loggedIn):
-    login = LoginData(timestamp=time.time()*1000, tokenID=" ", login = False)
-    login_json = json.dumps(login.__dict__)
-    mqtt_client.publish("V4/com2/web", login_json, client)
-    print("log out succesfull")
-    loggedIn = False
-    return loggedIn
+# implemented in main
+#def logout(client, loggedIn):
+ #   login = LoginData(timestamp=time.time()*1000, tokenID=" ", login = False)
+   # login_json = json.dumps(login.__dict__)
+  #  mqtt_client.publish("SysArch/V4/com2/web", login_json, client)
+   # print("log out succesfull")
+    #loggedIn = False
+    #return loggedIn
 
 
 

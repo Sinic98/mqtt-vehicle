@@ -11,7 +11,9 @@ loginque = False
 def setupClient():
     client = mqtt.Client("Pi8")
     client.username_pw_set("V4", "DE7")
-    client.connect("localhost", 8884)
+    lwm = "Error: Client disconnected. Dataloss may occur!"     # last will message
+    client.will_set("/SysArch/V4/", lwm, 1, retain = False)
+    client.connect("localhost", 8884)                           #connect client
     print("Client connected")
 
     client.subscribe("/SysArch/V4/com2/car")
@@ -21,46 +23,33 @@ def setupClient():
         if rc == 0:
             print("CONNACK received with code %d." % (rc))
             client.connected_flag = True
-
         else:
             print("Connection refused with code %d." %(rc))
 
     def on_disconnect(client, userdata, rc):
         if rc!= 0:
-            print("Unexpected disconnection! disconnecting reason:  " + str(rc))
+            print("Unexpected disconnection! disconnecting reason:  " )
             client.connected_flag = False
         else:
-            print("Disconnected: " + str(rc))
-
-        #client.connected_flag = False
-       # client.disconnect_flag = True
+            print("Disconnected: " )
 
     def on_publish(client, userdata, rc):
-        print("Data published")
         pass
 
     def on_message(client, userdata, message):
-        print "Message received: "  + message.payload
-        #global loginAnswer
+
         buffer=message.payload
-        global loginAnswer
-        loginAnswer = json.loads(buffer)
-        print("In on_client")
-        print(loginAnswer["certified"])
-        global loginque
+        global loginAnswer, loginque
+        loginAnswer = json.loads(buffer)        # converts json formatted message into  object
         loginque = True
-        
 
-
-            
 
     client.on_connect = on_connect
     client.on_publish = on_publish
     client.on_message = on_message
+    client.on_disconnect = on_disconnect
 
-    lwm = "Error: Client disconnected. Dataloss may occur!"     # last will message
-    client.will_set("/SysArch/V4", lwm, 1, retain = False)
-    #client.reconnect_delay_set(min_delay = 1, max_delay = 10)
+
     client.loop_start()
     return client
 
@@ -73,3 +62,5 @@ def subscribe(topic, client):
 
 def stopClient(client):
     client.loop_stop()
+
+
