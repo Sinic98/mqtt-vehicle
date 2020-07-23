@@ -31,7 +31,7 @@ def sensorvalues():
         global json_data, accel, magnet, gyro, alti, loggout, connected, loggedIn
         json_data = sensors.saveSensorValuesAsJson(accel, magnet, gyro, alti)  # read sensor values and save them as a JSON string
         time.sleep(1)
-        mqtt_client.publish("/SysArch/V4", json_data, client)  # publish JSON string
+        mqtt_client.publish("/SysArch/V4/", json_data, client)  # publish JSON string
 # if not connected to the client, start the database.offlinehandler ** we dont change the variable! We didnt have time to implement that
         if connected == False:
             database.offlinehandler(connected, accel, magnet, gyro, alti, client)

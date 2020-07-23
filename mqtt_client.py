@@ -12,7 +12,7 @@ def setupClient():
     client = mqtt.Client("Pi8")
     client.username_pw_set("V4", "DE7")
     lwm = "Error: Client disconnected. Dataloss may occur!"     # last will message
-    client.will_set("/SysArch/V4", lwm, 1, retain = False)
+    client.will_set("/SysArch/V4/", lwm, 1, retain = False)
     client.connect("localhost", 8884)                           #connect client
     print("Client connected")
 
